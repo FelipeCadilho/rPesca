@@ -1,0 +1,14 @@
+Package: rPesca
+Title: Modelos matemáticos para pesquisa pesqueira
+Version: 0.0.0.1
+Authors@R: 
+    person("Felipe", "Cadilho", , "sr.cadilho@gmail.com", role = c("aut", "cre"))
+Description: Pacote centralizador de funções de modelos matemáticos.
+Depends: R (>=3.2.1)
+License: `use_gpl3_license()`
+LazyData: true
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: ggplot2
+Suggests: caret
