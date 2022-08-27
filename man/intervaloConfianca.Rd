@@ -19,15 +19,15 @@ intervaloConfianca(
 
 \item{gom}{Contém dados completos do ajuste de Levenberg-Marquardt para parâmetros de Gompertz.}
 
-\item{lgc}{Contém dados completos do ajuste de Levenberg-Marquardt para parâmetros de Logistica.}
+\item{lgc}{Contém dados completos do ajuste de Levenberg-Marquardt para parâmetros de Logística.}
 
 \item{curva_linha_ajustadaB}{Contém dados da curva de Bartalanffy com ajuste de Levenberg-Marquardt.}
 
 \item{curva_linha_ajustadaG}{Contém dados da curva de Gompertz com ajuste de Levenberg-Marquardt.}
 
-\item{curva_linha_ajustadaL}{Contém dados da curva de Logistica com ajuste de Levenberg-Marquardt.}
+\item{curva_linha_ajustadaL}{Contém dados da curva de Logística com ajuste de Levenberg-Marquardt.}
 
-\item{real_cont_fw}{Contém do "n" da amostra.}
+\item{real_cont_fw}{Contém o "n" da amostra.}
 }
 \description{
 Script que calcula o intervalo de confiança sobre os dados ajustados pelo modelo de Levenberg-Marquardt.

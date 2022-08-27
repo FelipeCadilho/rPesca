@@ -17,10 +17,14 @@
 #'@param Fonte Informa a família da fonte a ser utilizada nos gráficos, sendo NULL = Times New Roman, 1 = Arial ou 2 = Courier New.(Por padrão: Times New Roman)
 #'
 #'@examples
-#'rPesca(cores, idioma, un, tipoComprimento, tempo, tipo_dados, nome_dados, planilha, separador, grupo, nomeA, nomeB, Fonte)
-#'rPesca(2, 2, 1, "Total", 1, 1, "exemplo.xlsx", "individual")
-#'rPesca(2, 2, 1, "Total", 1, 1, "exemplo.xlsx", "grupo", NULL, 1, "m", "f")
+#'data(exemplo)
 #'
+#'rPesca(2, 1, 1, "Total", 1, 4, "ex_individual")
+#'rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", NULL, 1, "ara", "ita")
+#'
+#'data(example)
+#'rPesca(2, 1, 1, "Total", 1, 4, "ex_individual")
+#'rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", NULL, 1, "ara", "ita")
 #'
 #'@export
 

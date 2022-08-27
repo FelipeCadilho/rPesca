@@ -18,15 +18,15 @@ fordWalford(
 \arguments{
 \item{dados}{Contém um dataframe com os dados importados.}
 
-\item{labelCX}{Contém o rótulo para eixo x sobre média de ct.}
+\item{labelCX}{Contém o rótulo para eixo x sobre média de comprimento.}
 
-\item{labelCY}{Contém o rótulo para eixo y sobre média de ct.}
+\item{labelCY}{Contém o rótulo para eixo y sobre média de comprimento.}
 
 \item{labelLX}{Contém o rótulo para eixo x sobre o ln.}
 
 \item{labelLY}{Contém o rótulo para eixo y sobre o ln.}
 
-\item{mainNameC}{Contém o título do gráfico para regressão do ct.}
+\item{mainNameC}{Contém o título do gráfico para regressão do comprimento.}
 
 \item{mainNameD}{Contém o título do gráfico para regressão do ln.}
 

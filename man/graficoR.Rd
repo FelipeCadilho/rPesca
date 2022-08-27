@@ -33,7 +33,7 @@ graficoR(ln_x, ln_y, regressao_ln, labelX, labelY, mainA, result, sexo = NULL)
 
 \item{entradaG}{Contém o vetor com a linha da curva de Gompertz.}
 
-\item{entradaL}{Contém o vetor com a linha da curva de Logistica.}
+\item{entradaL}{Contém o vetor com a linha da curva de Logística.}
 
 \item{emaB}{Contém o vetor com a linha da parte maior do IC para Bertalanffy.}
 
@@ -45,7 +45,7 @@ graficoR(ln_x, ln_y, regressao_ln, labelX, labelY, mainA, result, sexo = NULL)
 
 \item{emeG}{Contém o vetor com a linha da parte menor do IC para Gompertz.}
 
-\item{emeL}{Contém o vetor com a linha da parte menor do IC para Logistica.}
+\item{emeL}{Contém o vetor com a linha da parte menor do IC para Logística.}
 
 \item{Lin}{Contém as classes de comprimento e seu respectivo n agrupado.}
 

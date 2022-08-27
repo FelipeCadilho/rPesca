@@ -10,7 +10,7 @@ removedor(variaveis)
 \item{variaveis}{Indica um número referente ao conjunto de variáveis que será removida.}
 }
 \description{
-Script que remove as variáveis para que não ocorra conflitos no uso em dados agrupados por sexo.
+Script que remove as variáveis para que não ocorra conflitos no uso em dados agrupados.
 }
 \examples{
 removedor(variaveis)

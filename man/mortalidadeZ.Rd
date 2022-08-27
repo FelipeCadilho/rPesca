@@ -28,7 +28,7 @@ mortalidadeZ(
 
 \item{dados}{Contém o dataframe com os dados importados.}
 
-\item{real_cont_fw}{Contém do "n" da amostra.}
+\item{real_cont_fw}{Contém o "n" da amostra.}
 
 \item{idioma}{Contém o idioma do resultado.}
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ajusteLevenberg.R
 \name{ajusteLevenberg}
 \alias{ajusteLevenberg}
-\title{Ajuste dos mínimos quadrados de Levenberg-Marquardt.}
+\title{Ajuste de redução dos mínimos quadrados - Levenberg-Marquardt.}
 \usage{
 ajusteLevenberg(
   c_infinito,
@@ -26,7 +26,7 @@ ajusteLevenberg(
 
 \item{dados_curva}{Contém o dataframe com os dados das curvas de crescimento.}
 
-\item{real_cont_fw}{Contém do "n" da amostra.}
+\item{real_cont_fw}{Contém o "n" da amostra.}
 
 \item{medida}{Legenda do gráfico eixo y.}
 

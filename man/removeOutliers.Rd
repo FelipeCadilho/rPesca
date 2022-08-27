@@ -4,9 +4,11 @@
 \alias{removeOutliers}
 \title{Remoção de Outliers.}
 \usage{
-removeOutliers(Dados)
+removeOutliers(Dados, grupo = NULL)
 }
 \arguments{
+\item{grupo}{Contém indicador de dados com grupos.}
+
 \item{dados}{Contém um dataframe com os dados importados.}
 }
 \description{

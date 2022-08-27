@@ -25,7 +25,7 @@ crescimento(
 
 \item{tzer}{Contém o tempo no comprimento zero.}
 
-\item{contador}{Contém do "n" da amostra.}
+\item{contador}{Contém o "n" da amostra.}
 
 \item{tempoB}{Legenda do gráfico eixo x.}
 
@@ -36,7 +36,7 @@ crescimento(
 \item{sexo}{Contém um texto referente ao grupo atual.}
 }
 \description{
-Script que calcula a cruva de crescimento a partir dos parâmetros gerados pelo modelo de Ford-Walford.
+Script que calcula a curva de crescimento a partir dos parâmetros gerados pelo modelo de Ford-Walford.
 }
 \examples{
 crescimento(dados, c_inf, B, tzer, contador, tempoB, medida, mainNameA, sexo)
