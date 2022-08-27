@@ -51,13 +51,12 @@ rPesca(
 Script que análisa dados amostrais de acordo com modelos de crescimento, mortalidade e verossimilhança.
 }
 \examples{
-data(exemplo)
-
+data("exemplo")
 rPesca(2, 1, 1, "Total", 1, 4, "ex_individual")
-rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", NULL, 1, "ara", "ita")
+rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", "grupo", NULL, 1, "ara", "ita")
 
-data(example)
-rPesca(2, 1, 1, "Total", 1, 4, "ex_individual")
-rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", NULL, 1, "ara", "ita")
+data("example")
+rPesca(2, 2, 1, "Total", 1, 4, "eg_individual")
+rPesca(2, 2, 1, "Total", 1, 4, "eg_group",NULL, NULL, 1, "ara", "ita")
 
 }
