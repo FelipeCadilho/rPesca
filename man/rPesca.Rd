@@ -53,14 +53,18 @@ Script que análisa dados amostrais de acordo com modelos de crescimento, mortal
 \examples{
 data("exemplo")
 force(ex_individual)
-rPesca(2, 1, 1, "Total", 1, 4, "ex_individual")
+rPesca(2, 1, 1, "Total", 1, 4, ex_individual)
+
+data("exemplo")
 force(ex_grupo)
-rPesca(2, 1, 1, "Total", 1, 4, "ex_grupo", "grupo", NULL, 1, "ara", "ita")
+rPesca(2, 1, 1, "Total", 1, 4, ex_grupo, NULL, NULL, 1, "ara", "ita")
 
 data("example")
 force(eg_individual)
-rPesca(2, 2, 1, "Total", 1, 4, "eg_individual")
+rPesca(2, 2, 1, "Total", 1, 4, eg_individual)
+
+data("example")
 force(eg_group)
-rPesca(2, 2, 1, "Total", 1, 4, "eg_group",NULL, NULL, 1, "ara", "ita")
+rPesca(2, 2, 1, "Total", 1, 4, eg_group, NULL, NULL, 1, ara, ita)
 
 }
