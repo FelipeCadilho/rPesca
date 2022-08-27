@@ -143,6 +143,8 @@ graficoR <- function(ln_x, ln_y, regressao_ln, labelX, labelY, mainA, result, se
              xlab = labelX,
              ylab = labelY)
   }
+
+  par(family = "Fonte")
   legend("bottomright",
          inset=.01,
          bty = tipoCaixaAA,
@@ -278,9 +280,9 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 xlab = labelX,
                 ylab = labelY,
                 ylim = c(min(limY),max(limY)),
+                xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
-
     legend("bottomright",
            legend = c(modeloA,modeloB,modeloC),
            bty = tipoCaixaBB,
@@ -307,7 +309,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
           lty = tipoLinhaC,
           lwd = 1.5)
   }
-
+  if(!is.null(entradaB)&&!is.null(entradaG)&&!is.null(entradaL)){
   if(idioma == 1){
     cat("\nDeseja manter o mesmo padrão de cor e linha
       \ndo gráfico generalizado nos específicos?
@@ -325,7 +327,9 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
   }
 
    respostaGraficos <<- scan(n=1)
-
+  }else{
+    respostaGraficos <<-4
+  }
   #controle de exceção
   if(is.null(respostaGraficos)||length(respostaGraficos)==0 || respostaGraficos >=5 || respostaGraficos <= 0){
     respostaGraficos <<- 4
@@ -397,6 +401,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 xlab = labelX,
                 ylab = labelY,
                 ylim = c(min(limY),max(limY)),
+                xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
     legend("bottomright",
@@ -422,8 +427,9 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 xlab = labelX,
                 ylab = labelY,
                 ylim = c(min(limY),max(limY)),
+                xaxt='n',
                 xlim = c(limiteX,limiteXX))
-    axis(1, at = seq(0, round(max(curva_x)), by = 1))#, labels = 0:max(limX))
+    axis(1, at = seq(0, round(max(curva_x)), by = 1))
     legend("bottomright",
            legend = c(modeloB),
            bty = tipoCaixaBB,
@@ -447,6 +453,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 xlab = labelX,
                 ylab = labelY,
                 ylim = c(min(limY),max(limY)),
+                xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
     legend("bottomright",
@@ -491,6 +498,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -518,6 +526,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
         lty = 2,
         lwd = 1.5)
   }
+  if(!is.null(entradaB) && !is.null(entradaG) && !is.null(entradaL)){
   if(idioma == 1){
     cat("\nDeseja manter o mesmo padrão de cor e linha
       \ndo gráfico generalizado nos específicos?
@@ -533,9 +542,10 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
        \nEnter (3) to: Keep Both
        \nEnter (4) to: Do not keep\n")
   }
-
-
   respostaGraficos <<- scan(n=1)
+  }else{
+    respostaGraficos <<- 4
+  }
 
   #controle de exceção
   if(is.null(respostaGraficos)||length(respostaGraficos)==0 || respostaGraficos >=5 || respostaGraficos <= 0){
@@ -609,6 +619,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -635,6 +646,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -661,6 +673,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -687,6 +700,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -724,6 +738,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",
@@ -761,6 +776,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               xlab = labelX,
               ylab = labelY,
               ylim = c(min(limY),max(limY)),
+              xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
   legend("bottomright",

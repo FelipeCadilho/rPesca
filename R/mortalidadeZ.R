@@ -183,7 +183,6 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
 
   #calcula t(i)
   for(i in 1:contReal){
-    #Ti[i,1] <<- tzero-(1/k)*ln(1-LiN[i,1]/c_infinito)
     Ti[i,1] <<- tzero-(1/k)*ln(1-lin[i]/c_infinito)
   }
 
@@ -225,18 +224,16 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
       labelC = "y"
     }
   }else{
-  labelA =paste("Curva de Captura Z\n", modelo)
-  labelB = "x"
-  labelC = "y"
-
-  #tradução para inglês
-  if(idioma == 2){
-    labelA =paste("Catch Curve Z\n", modelo)
+    labelA =paste("Curva de Captura Z\n", modelo)
     labelB = "x"
     labelC = "y"
-  }
 
-
+    #tradução para inglês
+    if(idioma == 2){
+      labelA =paste("Catch Curve Z\n", modelo)
+      labelB = "x"
+      labelC = "y"
+    }
   }
 
   #cria vetor do eixo x
@@ -249,47 +246,41 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
   contesReal <<- 0
   contRealX <<- 0
   contRealY <<- 0
-  indiceD <<- 0
+
   #variavel que receberá posição mais alta do vetor com NA
   ocultado <<- vector()
-  for (i in 1:conteReal) {
-      if(is.na(z_x[i]) || is.na(z_y[i])){
-          indiceD <<- indiceD+1
-          ocultado[indiceD] <<- i
-      }
-      if(!is.na(z_x[i])){
-          contRealX <<- contRealX + 1
-      }
-      if(!is.na(z_y[i])){
-        contRealY <<- contRealY + 1
-      }
-  }
 
-  indiceE <<- 0
+  #se existir NA ocultado recebe posição
+  ocultado <<- c(which(is.na(z_x)),which(is.na(z_y)))
+
+  #remove posições duplicadas
+  ocultado <<- unique(ocultado)
+
+  #ordena posições em ordem crescente
+  ocultado <<- ocultado[order(ocultado)]
+
+  #se não exisir NA atribui aos vetores
+  contRealX <<- length(which(!is.na(z_x)))
+  contRealY <<- length(which(!is.na(z_y)))
+
+  #novos vetores de x e y organizados
   z_xx <<- vector()
   z_yy <<- vector()
-  #verifica desigualdade de tamanho e iguala
-  if(contRealX!=contRealY){
-    for(i in 1: conteReal){
-      indiceE = indiceE + 1
-        if(isTRUE(ocultado[ocultado == i]) && ocultado[ocultado == i]==i){
-          indiceE <<- indiceE - 1
-        }else{
-            z_xx[indiceE] <<- z_x[i]
-            z_yy[indiceE] <<- z_y[i]
-        }
-    }
-    if(contRealX > contRealY){
-        contesReal <<- contRealY
 
-    }else{
-        contesReal <<- contRealX
+  #indice para não pular posição no novo vetor
+  indiceD <<- 0
+
+  #organizar vetor alinhando as mesmas posições sem NA
+  for(i in 1:conteReal){
+    if(!isTRUE(ocultado[ocultado==i]==i)){
+      indiceD <<- indiceD+1
+      z_xx[indiceD] <<- z_x[i]
+      z_yy[indiceD] <<- z_y[i]
     }
-  }else{
-      contesReal <<- conteReal
-      z_xx <<- z_x
-      z_yy <<- z_y
   }
+
+  #recebe o n do vetor organizado
+  contesReal <<- length(z_xx)
 
   #habilita alerta de erro
   options(warn = oldw)
@@ -302,16 +293,21 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
   acum <<- 0
   repeat{
     indiceF = indiceF+1
+      #verifica se é NA
       if(is.na(z_x[indiceG]) || is.na(z_y[indiceG])){
-        #parar no NaN
+        #reseta índice
         indiceF = 0
+        #verifica se vetores estão vazios
       }else if(is.na(agarraX[indiceF]) && is.na(agarraY[indiceF])){
         #iniciar vetores com os últimos valores
         agarraX[indiceF] <<- z_x[indiceG]
         agarraY[indiceF] <<- z_y[indiceG]
+        #reseta índice
         indiceF = 0
         acum <<- acum +1
+        #se a primeira posição de x for maior que a última
       }else if(z_xx[indiceG]<agarraX[indiceF]){
+        #e se a primeira posição de y for menor que a última
                 if(z_yy[indiceG]>agarraY[indiceF]){
                     indiceH=indiceF+1
                     #atribui valor atual ao campo seguinte do indiceF
@@ -332,11 +328,14 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
   }
   indiceI <<- contesReal
   indiceJ <<- 0
+  #se na sequência, a segunda posição não existir entra nessa tratativa
   if(is.na(agarraX[2]) || is.na(agarraY[2])){
     indiceIII = indiceI
     indiceII = 0
+    #procura sequência para regressão
     for(i in indiceIII:1){
         indiceII = i-1
+        #verifica se existe dados na posição anterior diferente do tamanho na posição atual
         if(z_yy[indiceII]>z_yy[i] && z_xx[indiceII]<z_xx[i]){
           indiceJ <<- indiceIII
         }
@@ -348,17 +347,22 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
 
     indiceK <<- indiceJ
     acum <<- 0
+    #zera porição 1 dos vetores
     agarraX[1] <<- NaN
     agarraY[1] <<- NaN
     repeat{
       indiceF = indiceF+1
+      #verifica se vetores estão com a primeira posição vazia
       if(is.na(agarraX[indiceF]) && is.na(agarraY[indiceF])){
         #iniciar vetores com os últimos valores
         agarraX[indiceF] <<- z_xx[indiceK]
         agarraY[indiceF] <<- z_yy[indiceK]
+        #reseta índice
         indiceF = 0
         acum <<- acum +1
+        #se a primeira posição de x for maior que a última
       }else if(z_xx[indiceK]<agarraX[indiceF]){
+        #e se a primeira posição de y for menor que a última
         if(z_yy[indiceK]>agarraY[indiceF]){
           indiceH=indiceF+1
           #atribui valor atual ao campo seguinte do indiceF
@@ -386,11 +390,12 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw, idioma, mode
   }else if(idioma == 2){
     cat("\nDo you want to redo this step? Y/N\n")
   }
-
   ok <<- readLines(n=1)
+  #se usuário está satisfeito encerra
   if(ok == 0 || toupper(ok) == "N"){
     ok <<- 1
   }else if(toupper(ok) == "S"||toupper(ok) == "Y"){
+    #se o usuário não estiver satisfeito continua
     ok <<- 0
     rm(modelOld, envir = .GlobalEnv)
     removedor(51)
