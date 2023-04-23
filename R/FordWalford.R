@@ -72,8 +72,8 @@ fordWalford <- function(dados, labelCX, labelCY, labelLX, labelLY, mainNameC, ma
   for(i in 1:real_som_idade){
     if(i < real_som_idade){
       media_c[i,1] <<- ct[i,1]
-      idade_log[i,1] <<- iidade[i]
     }
+    idade_log[i,1] <<- iidade[i]
   }
 
   #cria dataframe c+1
@@ -131,7 +131,7 @@ fordWalford <- function(dados, labelCX, labelCY, labelLX, labelLY, mainNameC, ma
   log_c_infinito_menos_med_ct <<- data.frame()
 
   #calcula ln
-  for(i in 1 :real_contagem_c_mais_um){
+  for(i in 1 :real_som_idade){
     log_c_infinito_menos_med_ct[i,1] <<- ln(c_infinito - ct[i,1])
   }
 
@@ -150,10 +150,10 @@ fordWalford <- function(dados, labelCX, labelCY, labelLX, labelLY, mainNameC, ma
   }else{
     #tratamento de erro
     if(idioma == 1){
-      erro <<- cat("\n\nO cálculo do logaritmo neperiano resultou em erro. \nVerifique sua base de dados e tente novamente.\n\n")
+      erro <<- cat("\n\nO cálculo do logaritmo Neperiano resultou em erro devido ao valor a ser calculado ser igual ou abaixo de zero. \nVerifique sua base de dados e tente novamente.\n\n")
       return(erro)
     }else if(idioma == 2){
-      erro <<- cat("\n\nThe calculation of the Neperian logarithm resulted in an error. \nCheck your database and try again.\n\n")
+      erro <<- cat("\n\nThe calculation of the Neperian logarithm resulted in an error due to the value to be calculated being equal to or below zero. \nCheck your database and try again.\n\n")
       return(erro)
     }
 
