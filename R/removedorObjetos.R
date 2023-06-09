@@ -374,6 +374,7 @@ removedor <- function(variaveis){
     rm(corPontoE, envir = .GlobalEnv)
     rm(limX, envir = .GlobalEnv)
     rm(limY, envir = .GlobalEnv)
+    rm(limY, envir = .GlobalEnv)
     rm(modeloA, envir = .GlobalEnv)
     rm(modeloB, envir = .GlobalEnv)
     rm(modeloC, envir = .GlobalEnv)
