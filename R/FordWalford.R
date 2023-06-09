@@ -178,8 +178,15 @@ fordWalford <- function(dados, labelCX, labelCY, labelLX, labelLY, mainNameC, ma
   #t0
   tzero <<- ((ln_a-ln(c_infinito))/k)
 
-  ford <<- c(c_infinito, k, tzero)
-  names(ford) <<- c("c_infinito","k","tzero")
+  ## ocorreu alteração do código neste trecho 02/05/2023
+  #indice da performance de crescimento Pauly and Munro (1984)
+  phi <<- round(log10(k)+2*log10(c_infinito),7)
 
+  #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+  M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
+
+  ford <<- c(c_infinito, k, tzero, phi,M)
+  names(ford) <<- c("c_infinito","k","tzero","ϕ","M")
+  ## fim da alteração 02/05/2023
   return()
 }
