@@ -30,30 +30,42 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
   if(is.null(genero)){
     fordd = ford
     if(idioma == 1){
-      names(fordd) = c("Cinf","k","t0")
-      cat("\nCinf   k    t0\n",round(ford,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
-    }else if(idioma == 2){
-      names(fordd) = c("Linf","k","t0")
-      cat("\nLinf   k    t0\n",round(ford,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordd) = c("Cinf","k","t0","ϕ","M")
+      cat("\nCinf   k    t0    ϕ    M\n",round(ford,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
+      ## fim da alteração 02/05/2023
+      }else if(idioma == 2){
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordd) = c("Linf","k","t0","ϕ","M")
+      cat("\nLinf   k    t0    ϕ    M\n",round(ford,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
+      ## fim da alteração 02/05/2023
     }
 
   }else if(genero == "A"){
     if(idioma == 1){
-      names(fordA) = c("Cinf","k","t0")
-      cat("\nCinf   k    t0\n",round(fordA,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordA) = c("Cinf","k","t0","ϕ","M")
+      cat("\nCinf   k    t0    ϕ    M\n",round(fordA,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
+      ## fim da alteração 02/05/2023
     }else if(idioma == 2){
-      names(fordA) = c("Linf","k","t0")
-      cat("\nLinf   k    t0\n",round(fordA,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordA) = c("Linf","k","t0","ϕ","M")
+      cat("\nLinf   k    t0    ϕ    M\n",round(fordA,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
+      ## fim da alteração 02/05/2023
     }
 
   }else if(genero == "B"){
     if(idioma == 1){
-      names(fordB) = c("Cinf","k","t0")
-      cat("\nCinf   k    t0\n",round(fordB,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
-    }else if(idioma == 2){
-      names(fordB) = c("Linf","k","t0")
-      cat("\nLinf   k    t0\n",round(fordB,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
-    }
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordB) = c("Cinf","k","t0","ϕ", "M")
+      cat("\nCinf   k    t0    ϕ    M\n",round(fordB,2),"\n\nDeseja travar algum parâmetro utilizado no cálculo \nde ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\n")
+      ## fim da alteração 02/05/2023
+   }else if(idioma == 2){
+      ## Ocorreu alteração do código neste trecho 02/05/2023
+      names(fordB) = c("Linf","k","t0","ϕ", "M")
+      cat("\nLinf   k    t0    ϕ    M\n",round(fordB,2),"\n\nDo you want to lock some parameter used in\nthe Levenberg-Marquardt least squares fit calculation \n? Y/N\n")
+      ## fim da alteração 02/05/2023
+  }
 
   }
   respostaAjuste <<- toupper(readLines(n=1))
@@ -113,6 +125,102 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
   if(respostaTravaTz == "Y"){
     respostaTravaTz = "S"
   }
+## Ocorreu alteração do código neste trecho 02/05/2023
+  if(idioma == 1){
+    cat("\nDeseja aplicar base de dados diferente da utilizada no Ford-Walford",sexo,"\npara ajuste dos mínimos quadrados de Levenberg-Marquardt? S/N\nSe a escolha for sim, os dados não podem estar agrupados.\n")
+  }else if(idioma == 2){
+    cat("\nDo you want to apply a different database than the one used in Ford-Walford",sexo,"\nfor the Levenberg-Marquardt least squares fit? Y/N\nIf the choice is yes, the data cannot be grouped.\n")
+  }
+  respostaTrocaBD = toupper(readLines(n=1))
+  if(respostaTrocaBD=="S"||respostaTrocaBD=="Y"){
+    #Insere nov base de dados para ajustar a curva sobre os parâmetros obtidos pelo método do Ford-Walford
+    if(idioma == 1){
+      cat("\nInforme o número referente a extensão do arquivo de dado:\n1-xls ou xlsx (Padrão)\n2-csv\n3-txt\n4-Dataframe\n")
+    }else if(idioma == 2){
+      cat("\nEnter the extension number of the data file:\n1-xls or xlsx (Default)\n2-csv\n3-txt\n4-Dataframe\n")
+    }
+    tipo_dadosLM = scan(n=1)
+    if(tipo_dadosLM == 1){
+      dadoLM <- "xlsx"
+    }else if(tipo_dadosLM == 2){
+      dadoLM <- "csv"
+    }else if(tipo_dadosLM == 3){
+      dadoLM <- "txt"
+    }else if(tipo_dadosLM == 4){
+      dadoLM <- "dataframe"
+    }else if(is.null(tipo_dadosLM)){
+      dadoLM <- "xlsx"
+    }
+
+    if(idioma == 1){
+      cat("\nDigite o nome do arquivo com a sua extensão se houver. e.g. arquivo.xlsx\nLembre-se de configurar o local do arquivo como seu diretório de trabalho\n")
+    }else if(idioma == 2){
+      cat("\nEnter the name of the file with its extension if any. e.g. file.xlsx\nRemember to set the file location to your working directory\n")
+    }
+    nome_dadosLM = readLines(n=1)
+
+    if(dadoLM=="xlsx"){
+      if(idioma == 1){
+        cat("\nDigite o nome da planilha que se encontram os dados.\n")
+      }else if(idioma == 2){
+        cat("\nEnter the name of the worksheet where the data is located.\n")
+      }
+      planilhaLM = readLines(n=1)
+    }
+
+    if(dadoLM=="txt"||dadoLM=="csv"){
+      if(idioma == 1){
+        cat("\nQual caracter foi utilizado para separação das colunas no arquivo?\n")
+      }else if(idioma == 2){
+        cat("\nWhat character was used to separate the columns in the file?\n")
+      }
+      separadorLM = readLines(n=1)
+    }else{
+      separadorLM = ","
+    }
+
+    meus_dadosLM <<- data.frame()
+    dadosLM <<- data.frame()
+
+    if(dadoLM == "xlsx"){
+      #cria dataframe a partir dos dados da planilha
+      if(is.null(planilhaLM)){
+        meus_dadosLM <<- read_excel(nome_dadosLM)
+      }else{
+        meus_dadosLM <<- read_excel(nome_dadosLM, sheet = planilhaLM)
+      }
+    }else if(dado == "dataframe"){
+      meus_dadosLM <<- nome_dadosLM
+    }else if(dadoLM == "csv"){
+      if(is.null(separadorLM)){
+        meus_dadosLM <<- read.csv(file = nome_dadosLM, header = TRUE)
+      }else{
+        meus_dadosLM <<- read.csv(file = nome_dadosLM, header = TRUE, sep = separadorLM)
+      }
+    }else if(dadoLM == "txt"){
+      if(is.null(separadorLM)){
+        if(idioma == 1){
+          erro <<- "Necessário informar separador de arquivos em txt."
+          erro
+        }else{
+          erro <<- "Requires txt file separator."
+          erro
+        }
+      }else{
+        meus_dadosLM <<- read.delim2(nome_dadosLM, sep=separadorLM)
+      }
+    }
+      #atribui dados sem grupo de sexo da planilha ao dataframe dados
+      dadosLM <<- meus_dadosLM[,1]
+      dadosLM[,2] <<- meus_dadosLM[,2]
+      names(dadosLM) <<- c("idade","ct")
+      dados_curva <<- dadosLM
+
+      #captura comprimento geral
+      limY <<- max(dadosLM$ct)
+      mlimY <<- 0
+  }
+## Fim da alteração do código 02/05/2023
 
   #definição dos mínimos e máximos para travar determinados parâmetros
   MAXIMO = as.numeric(9999999)
@@ -178,6 +286,13 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
   #atribui comprimento infinito de Bertalanffy
   c_infinito_ajustadoB <<- cinfktzeroB[1]
 
+  ## ocorreu alteração do código neste trecho 02/05/2023
+  #indice da performance de crescimento
+  phi <<- round(log10(k_ajustadoB)+2*log10(c_infinito_ajustadoB),7)
+  cinfktzeroB[4] <<- phi
+  names(cinfktzeroB) <<- c("c_infinito","k","tzero","ϕ")
+  ## fim alteração 02/05/2023
+
   ################################### GOMPERTZ
 
   #cria a função de ajuste dos mínimos quadrados Levenberg-Marquardt Gompertz
@@ -231,6 +346,13 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
   #atribui comprimento infinito de Gompertz
   c_infinito_ajustadoG <<- cinfktzeroG[1]
 
+  ## ocorreu alteração do código neste trecho 02/05/2023
+  #indice da performance de crescimento
+  phi <<- round(log10(k_ajustadoG)+2*log10(c_infinito_ajustadoG),7)
+  cinfktzeroG[4] <<- phi
+  names(cinfktzeroG) <<- c("c_infinito","k","tzero","ϕ")
+  ## fim alteração 02/05/2023
+
   ################################### LOGÍSTICA
 
   #cria a função de ajuste dos mínimos quadrados Levenberg-Marquardt Logística
@@ -283,6 +405,13 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
 
   #atribui comprimento infinito de Logística
   c_infinito_ajustadoL <<- cinfktzeroL[1]
+
+  ## ocorreu alteração do código neste trecho 02/05/2023
+  #indice da performance de crescimento
+  phi <<- round(log10(k_ajustadoL)+2*log10(c_infinito_ajustadoL),7)
+  cinfktzeroL[4] <<- phi
+  names(cinfktzeroL) <<- c("c_infinito","k","tzero","ϕ")
+  ## fim alteração 02/05/2023
 
   #habilita alerta de erro
   options(warn = oldw)
