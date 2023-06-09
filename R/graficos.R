@@ -279,7 +279,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 main = mainA,
                 xlab = labelX,
                 ylab = labelY,
-                ylim = c(min(limY),max(limY)),
+                ylim = c(mlimY,limY),
                 xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -400,7 +400,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 main = mainA,
                 xlab = labelX,
                 ylab = labelY,
-                ylim = c(min(limY),max(limY)),
+                ylim = c(mlimY,limY),
                 xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -426,7 +426,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 main = mainA,
                 xlab = labelX,
                 ylab = labelY,
-                ylim = c(min(limY),max(limY)),
+                ylim = c(mlimY,limY),
                 xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -452,7 +452,7 @@ graficoN <- function(entradaX, entradaY, entradaB, entradaG, entradaL, labelX, l
                 main = mainA,
                 xlab = labelX,
                 ylab = labelY,
-                ylim = c(min(limY),max(limY)),
+                ylim = c(mlimY,limY),
                 xaxt='n',
                 xlim = c(limiteX,limiteXX))
     axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -497,7 +497,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -618,7 +618,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -645,7 +645,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -672,7 +672,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -699,7 +699,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -737,7 +737,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -775,7 +775,7 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
               main = mainA,
               xlab = labelX,
               ylab = labelY,
-              ylim = c(min(limY),max(limY)),
+              ylim = c(mlimY,limY),
               xaxt='n',
               xlim = c(limiteX,limiteXX))
   axis(1, at = seq(0, round(max(curva_x)), by = 1))
@@ -916,6 +916,7 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
     z_b <<- as.double(regressaoZ$coefficients[2])
 
     result <- paste("Z = ",abs(round(z_b,2))," R² = ",round(r2_z,3))
+    Z <<- abs(round(z_b,2))
 
     xmax <- round(max(tAspas),0)+1
     ymax <- round(max(lnNdT),0)+1
@@ -956,6 +957,7 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
     z_b <<- as.double(regressaoZ$coefficients[2])
 
     result <- paste("Z = ",abs(round(z_b,2))," R² = ",round(r2_z,3))
+    Z <<- abs(round(z_b,2))
 
     xmaxx <- round(max(agarraX))+1
     ymaxx <- round(max(agarraY))+1
