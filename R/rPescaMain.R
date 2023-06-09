@@ -775,8 +775,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoB, k_ajustadoB, tzero_ajustadoB, dados, real_cont_fw, idioma, modeloBB, mainNameE, labelEX, labelEY)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroB[2]^(0.73))*(cinfktzeroB[1]^(-0.33))
-        cinfktzeroB[5] <<- Z
-        cinfktzeroB[6] <<- M
+        cinfktzeroB[5] <<- M
+        cinfktzeroB[6] <<- Z
         cinfktzeroB[7] <<- Z-M
         cinfktzeroB[8] <<- cinfktzeroB[7]/Z
         #Fopt Patterson (1992)
@@ -790,8 +790,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoBM, k_ajustadoBM, tzero_ajustadoBM, dadosGrupoA, real_cont_fwA, idioma, modeloBB, mainNameEA, labelEX, labelEY, grupoA, label2)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroBM[2]^(0.73))*(cinfktzeroBM[1]^(-0.33))
-        cinfktzeroBM[5] <<- Z
-        cinfktzeroBM[6] <<- M
+        cinfktzeroBM[5] <<- M
+        cinfktzeroBM[6] <<- Z
         cinfktzeroBM[7] <<- Z-M
         cinfktzeroBM[8] <<- cinfktzeroBM[7]/Z
         #Fopt Patterson (1992)
@@ -805,8 +805,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoBF, k_ajustadoBF, tzero_ajustadoBF, dadosGrupoB, real_cont_fwB, idioma, modeloBB, mainNameEB, labelEX, labelEY, grupoB, label1)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroBF[2]^(0.73))*(cinfktzeroBF[1]^(-0.33))
-        cinfktzeroBF[5] <<- Z
-        cinfktzeroBF[6] <<- M
+        cinfktzeroBF[5] <<- M
+        cinfktzeroBF[6] <<- Z
         cinfktzeroBF[7] <<- Z-M
         cinfktzeroBF[8] <<- cinfktzeroBF[7]/Z
         #Fopt Patterson (1992)
@@ -836,8 +836,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoG, k_ajustadoG, tzero_ajustadoG, dados, real_cont_fw, idioma, modeloCC, mainNameE, labelEX, labelEY)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroG[2]^(0.73))*(cinfktzeroG[1]^(-0.33))
-        cinfktzeroG[5] <<- Z
-        cinfktzeroG[6] <<- M
+        cinfktzeroG[5] <<- M
+        cinfktzeroG[6] <<- Z
         cinfktzeroG[7] <<- Z-M
         cinfktzeroG[8] <<- cinfktzeroG[7]/Z
         #Fopt Patterson (1992)
@@ -851,8 +851,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoGM, k_ajustadoGM, tzero_ajustadoGM, dadosGrupoA, real_cont_fwA, idioma, modeloCC, mainNameEA, labelEX, labelEY, grupoA, label2)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroGM[2]^(0.73))*(cinfktzeroGM[1]^(-0.33))
-        cinfktzeroGM[5] <<- Z
-        cinfktzeroGM[6] <<- M
+        cinfktzeroGM[5] <<- M
+        cinfktzeroGM[6] <<- Z
         cinfktzeroGM[7] <<- Z-M
         cinfktzeroGM[8] <<- cinfktzeroGM[7]/Z
         #Fopt Patterson (1992)
@@ -866,8 +866,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoGF, k_ajustadoGF, tzero_ajustadoGF, dadosGrupoB, real_cont_fwB, idioma, modeloCC, mainNameEB, labelEX, labelEY, grupoB, label1)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroGF[2]^(0.73))*(cinfktzeroGF[1]^(-0.33))
-        cinfktzeroGF[5] <<- Z
-        cinfktzeroGF[6] <<- M
+        cinfktzeroGF[5] <<- M
+        cinfktzeroGF[6] <<- Z
         cinfktzeroGF[7] <<- Z-M
         cinfktzeroGF[8] <<- cinfktzeroGF[7]/Z
         #Fopt Patterson (1992)
@@ -897,8 +897,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoL, k_ajustadoL, tzero_ajustadoL, dados, real_cont_fw, idioma, modeloDD, mainNameE, labelEX, labelEY)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroL[2]^(0.73))*(cinfktzeroL[1]^(-0.33))
-        cinfktzeroL[5] <<- Z
-        cinfktzeroL[6] <<- M
+        cinfktzeroL[5] <<- M
+        cinfktzeroL[6] <<- Z
         cinfktzeroL[7] <<- Z-M
         cinfktzeroL[8] <<- cinfktzeroL[7]/Z
         #Fopt Patterson (1992)
@@ -915,8 +915,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroLM[2]^(0.73))*(cinfktzeroLM[1]^(-0.33))
-        cinfktzeroLM[5] <<- Z
-        cinfktzeroLM[6] <<- M
+        cinfktzeroLM[5] <<- M
+        cinfktzeroLM[6] <<- Z
         cinfktzeroLM[7] <<- Z-M
         cinfktzeroLM[8] <<- cinfktzeroLM[7]/Z
         #Fopt Patterson (1992)
@@ -931,8 +931,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         mortalidadeZ(c_infinito_ajustadoLF, k_ajustadoLF, tzero_ajustadoLF, dadosGrupoB, real_cont_fwB, idioma, modeloDD, mainNameEB, labelEX, labelEY, grupoB, label1)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroLF[2]^(0.73))*(cinfktzeroLF[1]^(-0.33))
-        cinfktzeroLF[5] <<- Z
-        cinfktzeroLF[6] <<- M
+        cinfktzeroLF[5] <<- M
+        cinfktzeroLF[6] <<- Z
         cinfktzeroLF[7] <<- Z-M
         cinfktzeroLF[8] <<- cinfktzeroLF[7]/Z
         #Fopt Patterson (1992)
