@@ -467,8 +467,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       rm(dadosNovo, envir = .GlobalEnv)
 
       #captura comprimento geral
-      limY <<- as.vector(meus_dados2$ct)
-      limY[1] <<- 0
+      limY <<- max(meus_dados2$ct)
+      mlimY <<- 0
 
       #captura idade geral
       limX <<- as.vector(meus_dados2$idade)
@@ -478,8 +478,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       meus_dados2 <<- dados
 
       #captura comprimento geral
-      limY <<- as.vector(meus_dados2$ct)
-      limY[1] <<- 0
+      limY <<- max(meus_dados2$ct)
+      mlimY <<- 0
 
       #captura idade geral
       limX <<- as.vector(meus_dados2$idade)
@@ -517,8 +517,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       meus_dados2 <<- rbind(dadosGrupoA, dadosGrupoB)
 
       #captura comprimento geral
-      limY <<- as.vector(meus_dados2$ct)
-      limY[1] <<- 0
+      limY <<- max(meus_dados2$ct)
+      mlimY <<- 0
 
       #captura idade geral
       limX <<- as.vector(meus_dados2$idade)
@@ -528,8 +528,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       meus_dados2 <<- meus_dados
 
       #captura comprimento geral
-      limY <<- as.vector(meus_dados2$ct)
-      limY[1] <<- 0
+      limY <<- max(meus_dados2$ct)
+      mlimY <<- 0
 
       #captura idade geral
       limX <<- as.vector(meus_dados2$idade)
@@ -718,16 +718,40 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 
         #Sem grupo
         mortalidadeZ(c_infinito, k, tzero, dados, real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
+        ford[6] <<- Z
+        ford[7] <<- Z-ford[5]
+        ford[8] <<- ford[7]/Z
+        #Fopt Patterson (1992)
+        ford[9] <<- 0.5*ford[5]
+        #Flimit Patterson (1992)
+        ford[10] <<- 2/3*ford[5]
+        names(ford) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
 
       }else{
         cat("\n[GRUPO: A]\n")
 
         mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA, real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
+        fordA[6] <<- Z
+        fordA[7] <<- Z-fordA[5]
+        fordA[8] <<- fordA[7]/Z
+        #Fopt Patterson (1992)
+        fordA[9] <<- 0.5*fordA[5]
+        #Flimit Patterson (1992)
+        fordA[10] <<- 2/3*fordA[5]
+        names(fordA) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
 
         cat("\n[GRUPO: B]\n")
 
         mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB, real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
+        fordB[6] <<- Z
+        fordB[7] <<- Z-fordB[5]
+        fordB[8] <<- fordB[7]/Z
+        #Fopt Patterson (1992)
+        fordB[9] <<- 0.5*fordB[5]
+        #Flimit Patterson (1992)
+        fordB[10] <<- 2/3*fordB[5]
+        names(fordB) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
       }
     }
@@ -749,14 +773,47 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       if(is.null(grupo)){
         #Sem grupo
         mortalidadeZ(c_infinito_ajustadoB, k_ajustadoB, tzero_ajustadoB, dados, real_cont_fw, idioma, modeloBB, mainNameE, labelEX, labelEY)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroB[2]^(0.73))*(cinfktzeroB[1]^(-0.33))
+        cinfktzeroB[5] <<- Z
+        cinfktzeroB[6] <<- M
+        cinfktzeroB[7] <<- Z-M
+        cinfktzeroB[8] <<- cinfktzeroB[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroB[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroB[10] <<- 2/3*M
+        names(cinfktzeroB) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
       }else{
         #grupo A
         cat("\n[GRUPO: A]\n")
         mortalidadeZ(c_infinito_ajustadoBM, k_ajustadoBM, tzero_ajustadoBM, dadosGrupoA, real_cont_fwA, idioma, modeloBB, mainNameEA, labelEX, labelEY, grupoA, label2)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroBM[2]^(0.73))*(cinfktzeroBM[1]^(-0.33))
+        cinfktzeroBM[5] <<- Z
+        cinfktzeroBM[6] <<- M
+        cinfktzeroBM[7] <<- Z-M
+        cinfktzeroBM[8] <<- cinfktzeroBM[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroBM[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroBM[10] <<- 2/3*M
+        names(cinfktzeroBM) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
         #grupo B
         cat("\n[GRUPO: B]\n")
         mortalidadeZ(c_infinito_ajustadoBF, k_ajustadoBF, tzero_ajustadoBF, dadosGrupoB, real_cont_fwB, idioma, modeloBB, mainNameEB, labelEX, labelEY, grupoB, label1)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroBF[2]^(0.73))*(cinfktzeroBF[1]^(-0.33))
+        cinfktzeroBF[5] <<- Z
+        cinfktzeroBF[6] <<- M
+        cinfktzeroBF[7] <<- Z-M
+        cinfktzeroBF[8] <<- cinfktzeroBF[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroBF[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroBF[10] <<- 2/3*M
+        names(cinfktzeroBF) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
       }
     }
@@ -777,14 +834,47 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       if(is.null(grupo)){
         #Sem grupo
         mortalidadeZ(c_infinito_ajustadoG, k_ajustadoG, tzero_ajustadoG, dados, real_cont_fw, idioma, modeloCC, mainNameE, labelEX, labelEY)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroG[2]^(0.73))*(cinfktzeroG[1]^(-0.33))
+        cinfktzeroG[5] <<- Z
+        cinfktzeroG[6] <<- M
+        cinfktzeroG[7] <<- Z-M
+        cinfktzeroG[8] <<- cinfktzeroG[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroG[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroG[10] <<- 2/3*M
+        names(cinfktzeroG) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
       }else{
         #grupo A
         cat("\n[GRUPO: A]\n")
         mortalidadeZ(c_infinito_ajustadoGM, k_ajustadoGM, tzero_ajustadoGM, dadosGrupoA, real_cont_fwA, idioma, modeloCC, mainNameEA, labelEX, labelEY, grupoA, label2)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroGM[2]^(0.73))*(cinfktzeroGM[1]^(-0.33))
+        cinfktzeroGM[5] <<- Z
+        cinfktzeroGM[6] <<- M
+        cinfktzeroGM[7] <<- Z-M
+        cinfktzeroGM[8] <<- cinfktzeroGM[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroGM[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroGM[10] <<- 2/3*M
+        names(cinfktzeroGM) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
         #grupo B
         cat("\n[GRUPO: B]\n")
         mortalidadeZ(c_infinito_ajustadoGF, k_ajustadoGF, tzero_ajustadoGF, dadosGrupoB, real_cont_fwB, idioma, modeloCC, mainNameEB, labelEX, labelEY, grupoB, label1)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroGF[2]^(0.73))*(cinfktzeroGF[1]^(-0.33))
+        cinfktzeroGF[5] <<- Z
+        cinfktzeroGF[6] <<- M
+        cinfktzeroGF[7] <<- Z-M
+        cinfktzeroGF[8] <<- cinfktzeroGF[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroGF[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroGF[10] <<- 2/3*M
+        names(cinfktzeroGF) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         removedor(5)
       }
     }
@@ -805,14 +895,52 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       if(is.null(grupo)){
         #Sem grupo
         mortalidadeZ(c_infinito_ajustadoL, k_ajustadoL, tzero_ajustadoL, dados, real_cont_fw, idioma, modeloDD, mainNameE, labelEX, labelEY)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroL[2]^(0.73))*(cinfktzeroL[1]^(-0.33))
+        cinfktzeroL[5] <<- Z
+        cinfktzeroL[6] <<- M
+        cinfktzeroL[7] <<- Z-M
+        cinfktzeroL[8] <<- cinfktzeroL[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroL[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroL[10] <<- 2/3*M
+        names(cinfktzeroL) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
+        ## fim alteração 02/05/2023
+
       }else{
         #grupo A
         cat("\n[GRUPO: A]\n")
         mortalidadeZ(c_infinito_ajustadoLM, k_ajustadoLM, tzero_ajustadoLM, dadosGrupoA, real_cont_fwA, idioma, modeloDD, mainNameEA, labelEX, labelEY, grupoA, label2)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroLM[2]^(0.73))*(cinfktzeroLM[1]^(-0.33))
+        cinfktzeroLM[5] <<- Z
+        cinfktzeroLM[6] <<- M
+        cinfktzeroLM[7] <<- Z-M
+        cinfktzeroLM[8] <<- cinfktzeroLM[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroLM[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroLM[10] <<- 2/3*M
+        names(cinfktzeroLM) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
+        ## fim alteração 02/05/2023
         removedor(5)
         #grupo B
         cat("\n[GRUPO: B]\n")
         mortalidadeZ(c_infinito_ajustadoLF, k_ajustadoLF, tzero_ajustadoLF, dadosGrupoB, real_cont_fwB, idioma, modeloDD, mainNameEB, labelEX, labelEY, grupoB, label1)
+        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+        M = 4.118*(cinfktzeroLF[2]^(0.73))*(cinfktzeroLF[1]^(-0.33))
+        cinfktzeroLF[5] <<- Z
+        cinfktzeroLF[6] <<- M
+        cinfktzeroLF[7] <<- Z-M
+        cinfktzeroLF[8] <<- cinfktzeroLF[7]/Z
+        #Fopt Patterson (1992)
+        cinfktzeroLF[9] <<- 0.5*M
+        #Flimit Patterson (1992)
+        cinfktzeroLF[10] <<- 2/3*M
+        names(cinfktzeroLF) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
+        ## fim alteração 02/05/2023
         removedor(5)
       }
     }
@@ -820,14 +948,39 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     if(is.null(grupo)){
       #Sem grupo
       mortalidadeZ(c_infinito, k, tzero, dados, real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
+      ford[6] <<- Z
+      ford[7] <<- Z-ford[5]
+      ford[8] <<- ford[7]/Z
+      #Fopt Patterson (1992)
+      ford[9] <<- 0.5*ford[5]
+      #Flimit Patterson (1992)
+      ford[10] <<- 2/3*ford[5]
+      names(ford) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
+
     }else{
       #grupo A
       cat("\n[GRUPO: A]\n")
       mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA, real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
+      fordA[6] <<- Z
+      fordA[7] <<- Z-fordA[5]
+      fordA[8] <<- fordA[7]/Z
+      #Fopt Patterson (1992)
+      fordA[9] <<- 0.5*fordA[5]
+      #Flimit Patterson (1992)
+      fordA[10] <<- 2/3*fordA[5]
+      names(fordA) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
       removedor(5)
       #grupo B
       cat("\n[GRUPO: B]\n")
       mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB, real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
+      fordB[6] <<- Z
+      fordB[7] <<- Z-fordB[5]
+      fordB[8] <<- fordB[7]/Z
+      #Fopt Patterson (1992)
+      fordB[9] <<- 0.5*fordB[5]
+      #Flimit Patterson (1992)
+      fordB[10] <<- 2/3*fordB[5]
+      names(fordB) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
       removedor(5)
     }
   }
@@ -992,10 +1145,11 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     if(idioma == 1){
       return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
     }else if(idioma == 2){
-      names(ford) <<- c("Linf","k","t0")
-      names(cinfktzeroB) <<- c("Linf","k","t0")
-      names(cinfktzeroG) <<- c("Linf","k","t0")
-      names(cinfktzeroL) <<- c("Linf","k","t0")
+      ## ocorreu alteração do código neste trecho 02/05/2023
+      names(ford) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      names(cinfktzeroB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      names(cinfktzeroG) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      names(cinfktzeroL) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
       return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
     }
 
@@ -1006,14 +1160,15 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
                     Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2)))
       }else if(idioma == 2){
-        names(fordA) <<- c("Linf","k","t0")
-        names(fordB) <<- c("Linf","k","t0")
-        names(cinfktzeroBM) <<- c("Linf","k","t0")
-        names(cinfktzeroGM) <<- c("Linf","k","t0")
-        names(cinfktzeroLM) <<- c("Linf","k","t0")
-        names(cinfktzeroBF) <<- c("Linf","k","t0")
-        names(cinfktzeroGF) <<- c("Linf","k","t0")
-        names(cinfktzeroLF) <<- c("Linf","k","t0")
+        names(fordA) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(fordB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroBM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroGM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroLM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroBF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroGF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        names(cinfktzeroLF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        ## fim da alteração 02/05/2023
         return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
                     Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2)))
       }
