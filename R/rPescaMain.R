@@ -31,7 +31,7 @@
 #'
 #'@export
 
-rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, tipo_dados=1, nome_dados, planilha=NULL, separador=NULL, grupo=NULL, nomeA=NULL, nomeB=NULL, Fonte=NULL){
+rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, tipo_dados=4, nome_dados, planilha=NULL, separador=NULL, grupo=NULL, nomeA=NULL, nomeB=NULL, Fonte=NULL){
 
   idioma <<- idioma
 
