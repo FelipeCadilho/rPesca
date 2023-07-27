@@ -91,7 +91,7 @@ total na segunda coluna e, finalmente, a classificação categórica de gênero 
     - Configure o diretório usando o comando `setwd()` ou pelo painel de visualização na aba `Files`.
 >Exemplo 1: setwd("C:/User/Usuário da Máquina/Documents")
 
->Exemplo 2:https://youtu.be/lnoQcMe63oA?t=156
+>Exemplo 2: https://youtu.be/lnoQcMe63oA?t=156
 2. Para carregar as funções do pacote, execute o comando `library(rPesca)` no console do RStudio.
 3. Realize a execução da função `rPesca()` informando os parâmetros de acordo com os seus dados.
     - `cores` Campo numérico para determinar como o gráfico será exibido, onde `1` representa escala de cinza e `2` representa colorido. (Padrão: Escala de cinza)
