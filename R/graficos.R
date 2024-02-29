@@ -862,12 +862,10 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
   }
   if(toupper(resposta) == "S"||toupper(resposta) == "Y"){
     #seleção da reta da curva de captura na janela
-    if(idioma == 1){
-      
+    if(idioma == 1){      
       text = paste("\nEscolha o ponto mínimo e o máximo no gráfico",sexo,"\npara incluir a linha de regressão!\n")
       textoD = "Clique em dois números distintos."
     }else if(idioma == 2){
-      xlab = paste("t (years)")
       text = paste("\nChoose the min and max point on the graph",sexo,"\nto include the regression line!\n")
       textoD = "Click on two distinct numbers."
     }
