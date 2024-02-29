@@ -825,6 +825,7 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
        xlab=labX,
        ylab=labY)
 
+  if(idioma == 1) xlab = paste("t (anos)"); ylab = paste("ln(N/dt)"); else xlab = paste("t (years)"); ylab = paste("ln(N/dt)");
   if(modelo=="(Ford-Walford)"){
     if(idioma == 1){
       cat("\nDeseja selecionar os pontos da curva de captura",sexo,"\na partir dos parâmetros de Ford-Walford? S/N\n")
@@ -862,9 +863,11 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
   if(toupper(resposta) == "S"||toupper(resposta) == "Y"){
     #seleção da reta da curva de captura na janela
     if(idioma == 1){
+      
       text = paste("\nEscolha o ponto mínimo e o máximo no gráfico",sexo,"\npara incluir a linha de regressão!\n")
       textoD = "Clique em dois números distintos."
     }else if(idioma == 2){
+      xlab = paste("t (years)")
       text = paste("\nChoose the min and max point on the graph",sexo,"\nto include the regression line!\n")
       textoD = "Click on two distinct numbers."
     }
@@ -928,8 +931,8 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
                        col = corPontoE,
                        pch = 16,
                        main = mainA,
-                       xlab = "",
-                       ylab = "")
+                       xlab = xlab,
+                       ylab = ylab)
     legend("topright",
            inset=.01,
            bty = tipoCaixaEE,
@@ -968,8 +971,8 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
                        col = corPontoE,
                        pch = 16,
                        main = mainA,
-                       xlab = "",
-                       ylab = "")
+                       xlab = xlab,
+                       ylab = ylab)
     legend("topright",
            inset=.01,
            bty = tipoCaixaEE,
