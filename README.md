@@ -17,7 +17,7 @@ fisheries, enabling the integration of results and enhancing decision-making pro
 
 ## Prerequisites to Run the Package
 ### Database
-* The data file should contain age information in the first column, followed by total length in the second column,
+* The data file should contain age information in the first column, followed by length in the second column,
 and finally, the categorical classification of gender, for example, in the third column.
 * The file can have the extensions `.xls`, `.xlsx`, `.csv`, `.txt`, or be of type `dataframe` in R.
 * It is necessary to inform the column separator character for data files with extensions `.csv` and `.txt`.
@@ -81,8 +81,7 @@ de pescarias artesanais e industriais, permitindo a integralização dos resulta
 
 ## Pré-requisitos para executar o pacote
 ### Base de dados
-* O arquivo de dados deve apresentar, na primeira coluna, as informações de idade, seguidas pelo comprimento
-total na segunda coluna e, finalmente, a classificação categórica de gênero sexual, por exemplo, na terceira coluna.
+* O arquivo de dados deve apresentar, na primeira coluna, as informações de idade, seguidas pelo comprimento na segunda coluna e, finalmente, a classificação categórica de gênero sexual, por exemplo, na terceira coluna.
 * O arquivo pode ter as extensões `.xls`, `.xlsx`, `.csv`, `.txt` ou ser do tipo objeto `dataframe` do R.
 * É necessário informar o caractere separador de colunas do arquivo de dados com as extensões `.csv` e `.txt`.
 
