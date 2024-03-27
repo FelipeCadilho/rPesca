@@ -825,7 +825,13 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
        xlab=labX,
        ylab=labY)
 
-  if(idioma == 1) xlab = paste("t (anos)"); ylab = paste("ln(N/dt)"); else xlab = paste("t (years)"); ylab = paste("ln(N/dt)");
+  if(idioma == 1){ 
+    xlab = paste("t (anos)") 
+    ylab = paste("ln(N/dt)")
+  } else {
+    xlab = paste("t (years)") 
+    ylab = paste("ln(N/dt)")
+  }
   if(modelo=="(Ford-Walford)"){
     if(idioma == 1){
       cat("\nDeseja selecionar os pontos da curva de captura",sexo,"\na partir dos parâmetros de Ford-Walford? S/N\n")
