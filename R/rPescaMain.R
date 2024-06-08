@@ -373,12 +373,12 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   }
 
   meus_dados <<- data.frame()
-  if(is.null(grupo)){
-    dados <<- data.frame(idade=c(0),ct=c(0))
-  }else{
-    dadosGrupoA <<- data.frame(idade=c(0),ct=c(0),grupos=c(0))
-    dadosGrupoB <<- data.frame(idade=c(0),ct=c(0),grupos=c(0))
-  }
+  # if(is.null(grupo)){
+  #   dados <<- data.frame(idade=c(0),ct=c(0))
+  # }else{
+  #   dadosGrupoA <<- data.frame(idade=c(0),ct=c(0),grupos=c(0))
+  #   dadosGrupoB <<- data.frame(idade=c(0),ct=c(0),grupos=c(0))
+  # }
 
   if(dado == "xlsx"){
     #cria dataframe a partir dos dados da planilha
@@ -415,8 +415,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     names(meus_dados) <<- c("idade","ct")
     
     #atribui dados sem grupo de sexo da planilha ao dataframe dados
-    dados[,1] <<- meus_dados[,1]
-    dados[,2] <<- meus_dados[,2]
+    dados <<- data.frame(idade = meus_dados[,1], ct = meus_dados[,2])
     #names(dados) <<- c("idade","ct")
 
 
@@ -427,16 +426,12 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 
     #atribui dados do grupo A da planilha ao dataframe dados
     dadobrutoA <<- meus_dados %>% group_by(idade)%>% filter (toupper(grupos) == toupper(label2))
-    dadosGrupoA[,1] <<- dadobrutoA[,1]
-    dadosGrupoA[,2] <<- dadobrutoA[,2]
-    dadosGrupoA[,3] <<- dadobrutoA[,3]
+    dadosGrupoA <<- data.frame(idade = dadobrutoA[,1], ct = dadobrutoA[,2], grupos = dadobrutoA[,3])
     #names(dadosGrupoA) <<- c("idade","ct","grupos")
 
     #atribui dados do grupo B da planilha ao dataframe dados
     dadoBrutoB <<- meus_dados %>% group_by(idade)%>% filter (toupper(grupos) == toupper(label1))
-    dadosGrupoB[,1] <<- dadoBrutoB[,1]
-    dadosGrupoB[,2] <<- dadoBrutoB[,2]
-    dadosGrupoB[,3] <<- dadoBrutoB[,3]
+    dadosGrupoB <<- data.frame(idade = dadoBrutoB[,1], ct = dadoBrutoB[,2], grupos = dadoBrutoB[,3])
     #names(dadosGrupoB) <<- c("idade","ct","grupos")
 
   }
