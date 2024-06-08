@@ -31,16 +31,10 @@ removeOutliers <- function(Dados,grupo=NULL){
   dadosIdade <<- Dados[,1]
 
   #ordena e atribui os dados da coluna idade no dataframe ano sem dados duplicados
-  idadeOrdenada <<- dadosIdade %>% group_by(idade) %>% filter (! duplicated(idade))
-
-  #conta quantidade de linhas de idade
-  contagemIdade <<- count(idadeOrdenada)
+  contagemIdade <<- Dados %>% group_by(idade) %>% filter (! duplicated(idade)) %>% select(idade) %>% count(idade)
 
   #calcula somatório da contagem do dataframe de idade
-  somatorioIdade <<- sum(contagemIdade[,2])
-
-  #transforma em real os dados do dataframe
-  Nidade <<- as.double(somatorioIdade)
+  Nidade <<- as.double(sum(contagemIdade[,2]))
 
   for(v in 1:Nidade){
   #filtra comprimento por idade
