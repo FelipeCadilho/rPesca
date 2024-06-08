@@ -151,10 +151,10 @@ fordWalford <- function(dados, labelCX, labelCY, labelLX, labelLY, mainNameC, ma
     #tratamento de erro
     if(idioma == 1){
       erro <<- cat("\n\nO cálculo do logaritmo Neperiano resultou em erro devido ao valor a ser calculado ser igual ou abaixo de zero. \nVerifique sua base de dados e tente novamente.\n\n")
-      return(erro)
+      stop(erro)
     }else if(idioma == 2){
       erro <<- cat("\n\nThe calculation of the Neperian logarithm resulted in an error due to the value to be calculated being equal to or below zero. \nCheck your database and try again.\n\n")
-      return(erro)
+      stop(erro)
     }
 
   }
