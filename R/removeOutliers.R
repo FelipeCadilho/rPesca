@@ -38,7 +38,7 @@ removeOutliers <- function(Dados,grupo=NULL){
 
   for(v in 1:Nidade){
   #filtra comprimento por idade
-  filtro    <<- dadosVelho %>% group_by(idade)%>% filter (idade == idadeOrdenada[v,])
+  filtro    <<- dadosVelho %>% group_by(idade)%>% filter (idade == contagemIdade[v,1])
 
   #calcula quartis e média
   analisar  <<- as.vector(filtro$ct)
