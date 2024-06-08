@@ -374,10 +374,10 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 
   meus_dados <<- data.frame()
   if(is.null(grupo)){
-    dados <<- data.frame()
+    dados <<- data.frame(c(0,0))
   }else{
-    dadosGrupoA <<- data.frame()
-    dadosGrupoB <<- data.frame()
+    dadosGrupoA <<- data.frame(c(0,0))
+    dadosGrupoB <<- data.frame(c(0,0))
   }
 
   if(dado == "xlsx"){
