@@ -437,13 +437,13 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   }
 
 
-  ################################### DEPURAÇÃO DE OUTLIERS PELA ESTATÍSTICA
+  ################################### DEPURAÇÃO DE dados discrepates PELA ESTATÍSTICA
 
   #pergunta se quer remover outliers pela análise estatística
   if(idioma == 1){
-    cat("\nDeseja remover outliers através da depuração estatística? S/N\n")
+    cat("\nDeseja remover dados discrepantes através da depuração estatística? S/N\n")
   }else if(idioma == 2){
-    cat("\nDo you want to remove outliers through statistical debugging? Y/N\n")
+    cat("\nDo you want to remove discrepant data through statistical debugging? Y/N\n")
   }
 
   respostaDepuracaoOutliers <<- toupper(readLines(n=1))
