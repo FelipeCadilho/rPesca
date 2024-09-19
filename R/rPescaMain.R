@@ -1144,10 +1144,10 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
     }else if(idioma == 2){
       ## ocorreu alteração do código neste trecho 02/05/2023
-      names(ford) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-      names(cinfktzeroB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-      names(cinfktzeroG) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-      names(cinfktzeroL) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      #names(ford) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      #names(cinfktzeroB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      #names(cinfktzeroG) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+      #names(cinfktzeroL) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
       return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
     }
 
@@ -1158,14 +1158,14 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
                     Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistica_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2)))
       }else if(idioma == 2){
-        names(fordA) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(fordB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroBM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroGM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroLM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroBF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroGF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
-        names(cinfktzeroLF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(fordA) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(fordB) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroBM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroGM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroLM) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroBF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroGF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
+        #names(cinfktzeroLF) <<- c("Linf","k","t0","ϕ","M","Z","F","E","Fopt","Flimit")
         ## fim da alteração 02/05/2023
         return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
                     Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2)))
