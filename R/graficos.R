@@ -860,6 +860,13 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
       cat("\nDo you want to select the capture curve points",sexo,"\nfrom the adjusted Logistic parameters? Y/N\n")
     }
 
+  }else if(modelo==""){
+    if(idioma == 1){
+      cat("\nDeseja selecionar os pontos da curva de captura? S/N\n")
+    }else if(idioma == 2){
+      cat("\nDo you want to select the capture curve points? Y/N\n")
+    }
+
   }
   resposta <- readLines(n = 1)
   #condição de exceção
