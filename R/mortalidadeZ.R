@@ -60,7 +60,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
       labX="t(years)" 
       labY="Ln(N/dt)"
     }
-    real_cont_fw <- length(dados[,2])    
+    real_cont_fw <<- length(dados[,2])    
   }
   
   #inicializa ok
@@ -210,7 +210,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
         classess_ct <<- classess_ct %>% arrange(classess_ct[[2]])
         dados_unicos <<- classess_ct[,2] %>% distinct()
         #identifica a classe usada
-        classe <<- dados_unicos[2,2]-dados_unicos[1,2]
+        classe <<- dados_unicos[2]-dados_unicos[1]
         #inicia novo conjunto do ct
         classes_ct <<- data.frame(ct=c(0))
         #atribui os ct ao novo conjunto
