@@ -214,7 +214,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
         classes_ct <<- data.frame(ct=c(0))
         #atribui os ct ao novo conjunto
         for(i in 1:real_cont_fww){
-          classes_ct[i,1] <<- (classess_ct[i,2]
+          classes_ct[i,1] <<- classess_ct[i,2]
         }
       }
 
