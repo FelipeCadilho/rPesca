@@ -62,6 +62,10 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     }
     real_cont_fw <<- nrow(dados[,2])
     real_cont_fww <<- nrow(dados[,2])
+    c_infinito <<- c_infinito
+    k <<- k
+    tzero <<- tzero
+    idioma <<- idioma
   }
   
   #inicializa ok
