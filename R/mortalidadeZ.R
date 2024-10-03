@@ -114,6 +114,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     classe_ct_bruto <<- dados
     classess_ct <<- data.frame(idade=c(0), ct=c(0))
     indiceClasseZ <<- 1
+    real_cont_fww <<- 0
     real_cont_fww <<- real_cont_fw
     if(toupper(respostaLimCt)=="S"){
       for(i in 1:real_cont_fw){
