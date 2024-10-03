@@ -60,7 +60,8 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
       labX="t(years)" 
       labY="Ln(N/dt)"
     }
-    real_cont_fw <<- as.double(nrow(dados[,2]))
+    real_cont_fw <<- nrow(dados[,2])
+    real_cont_fww <<- nrow(dados[,2])
   }
   
   #inicializa ok
@@ -114,8 +115,9 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     classe_ct_bruto <<- dados
     classess_ct <<- data.frame(idade=c(0), ct=c(0))
     indiceClasseZ <<- 1
-    real_cont_fww <<- 0
+    if(is.null(adhoc){
     real_cont_fww <<- real_cont_fw
+    }
     if(toupper(respostaLimCt)=="S"){
       for(i in 1:real_cont_fw){
         if(classe_ct_bruto[i,2]>=respostaLimMin && classe_ct_bruto[i,2]<= respostaLimMax){
