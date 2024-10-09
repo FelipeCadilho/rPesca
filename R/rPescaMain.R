@@ -698,7 +698,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   if(respostaMorta == ""){
     respostaMorta = "N"
   }
-  if(respostaMorta == "S"){
+  if(respostaMorta == "S" ||respostaMorta == "Y"){
     if(idioma == 1){
       cat("\nDeseja calcular a mortalidade total (Z) \na partir do modelo de FordWalford? S/N\n")
     }else if(idioma == 2){
