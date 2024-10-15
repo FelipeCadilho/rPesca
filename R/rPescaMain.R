@@ -715,7 +715,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       if(is.null(grupo)){
 
         #Sem grupo
-        mortalidadeZ(c_infinito, k, tzero, dados, real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
+        mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
         ford[6] <<- Z
         ford[7] <<- Z-ford[5]
         ford[8] <<- ford[7]/Z
@@ -728,7 +728,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       }else{
         cat("\n[GRUPO: A]\n")
 
-        mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA, real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
+        mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA[,2], real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
         fordA[6] <<- Z
         fordA[7] <<- Z-fordA[5]
         fordA[8] <<- fordA[7]/Z
@@ -741,7 +741,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 
         cat("\n[GRUPO: B]\n")
 
-        mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB, real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
+        mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB[,2], real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
         fordB[6] <<- Z
         fordB[7] <<- Z-fordB[5]
         fordB[8] <<- fordB[7]/Z
@@ -770,7 +770,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #levenberg/Bertalanffy
       if(is.null(grupo)){
         #Sem grupo
-        mortalidadeZ(c_infinito_ajustadoB, k_ajustadoB, tzero_ajustadoB, dados, real_cont_fw, idioma, modeloBB, mainNameE, labelEX, labelEY)
+        mortalidadeZ(c_infinito_ajustadoB, k_ajustadoB, tzero_ajustadoB, dados[,2], real_cont_fw, idioma, modeloBB, mainNameE, labelEX, labelEY)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroB[2]^(0.73))*(cinfktzeroB[1]^(-0.33))
         cinfktzeroB[5] <<- M
@@ -785,7 +785,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       }else{
         #grupo A
         cat("\n[GRUPO: A]\n")
-        mortalidadeZ(c_infinito_ajustadoBM, k_ajustadoBM, tzero_ajustadoBM, dadosGrupoA, real_cont_fwA, idioma, modeloBB, mainNameEA, labelEX, labelEY, grupoA, label2)
+        mortalidadeZ(c_infinito_ajustadoBM, k_ajustadoBM, tzero_ajustadoBM, dadosGrupoA[,2], real_cont_fwA, idioma, modeloBB, mainNameEA, labelEX, labelEY, grupoA, label2)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroBM[2]^(0.73))*(cinfktzeroBM[1]^(-0.33))
         cinfktzeroBM[5] <<- M
@@ -800,7 +800,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         removedor(5)
         #grupo B
         cat("\n[GRUPO: B]\n")
-        mortalidadeZ(c_infinito_ajustadoBF, k_ajustadoBF, tzero_ajustadoBF, dadosGrupoB, real_cont_fwB, idioma, modeloBB, mainNameEB, labelEX, labelEY, grupoB, label1)
+        mortalidadeZ(c_infinito_ajustadoBF, k_ajustadoBF, tzero_ajustadoBF, dadosGrupoB[,2], real_cont_fwB, idioma, modeloBB, mainNameEB, labelEX, labelEY, grupoB, label1)
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(cinfktzeroBF[2]^(0.73))*(cinfktzeroBF[1]^(-0.33))
         cinfktzeroBF[5] <<- M
