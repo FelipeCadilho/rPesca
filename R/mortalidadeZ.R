@@ -120,7 +120,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     }
     
     #selecionar os dados de comprimento da planilha matriz que estão entre o limite mínimo e máximo do comprimento definido pelo usuário ####
-    tamanho_bruto <<- dados
+    tamanho_bruto <<- data.frame(dados)
     tamanho <<- data.frame(ct=c(0))
     indiceClasseZ <<- 1
     if(is.null(adhoc)){
