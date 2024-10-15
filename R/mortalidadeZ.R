@@ -51,15 +51,17 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     
     #chama pacote de teste de verossimilhança de Kimura (1980)
     library("fishmethods")
-    
+    cat("1")
     if(idioma==1){
       mainE="Curva de Captura Linearizada Baseada no Comprimento" 
       labX="t(anos)" 
       labY="Ln(N/dt)"
+      cat("2")
     }else if(idioma==2){
       mainE="Length-Based Linearized Catch Curve" 
       labX="t(years)" 
       labY="Ln(N/dt)"
+       cat("2")
     }
     n_tamanho_inicial <<- nrow(dados[,1])
     n_tamanho_final <<- nrow(dados[,1])
@@ -67,6 +69,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     k <<- k
     tzero <<- tzero
     idioma <<- idioma
+    cat("3")
   }
   
   #inicializa ok
@@ -74,7 +77,10 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
   
   #começa a repetição de escolhas ####
   while(ok==0){
-    if(is.null(adhoc)) modelOld <<- modelo
+    if(is.null(adhoc)) {
+      modelOld <<- modelo
+      cat("erro 1")
+    }
     
     #perguntar se quer informar limite mínimo e máximo do comprimento ####
     if(idioma == 1){
@@ -92,7 +98,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     respostaLimMin <<- 0
     respostaLimMin <<- 0
     if(toupper(respostaLimCt)=="S"||toupper(respostaLimCt)=="Y"){
-      
+      cat("erro 2")
       if(idioma == 1){
         cat("\nInforme o limite mínimo:\n")
       }else if(idioma == 2){
@@ -120,6 +126,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     tamanho_bruto <<- dados
     tamanho <<- data.frame(ct=c(0))
     indiceClasseZ <<- 1
+    cat("4")
     if(is.null(adhoc)){
       n_tamanho_final <<- n_tamanho_inicial
     }
