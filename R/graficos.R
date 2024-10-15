@@ -813,6 +813,11 @@ graficoA <- function(entradaX, entradaY, entradaB, entradaG, entradaL, emaB, eme
 
 ################################ MORTALIDADE TOTAL
 graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mainA, modelo, sexo=NULL, mainE, labX, labY, pausas){
+  #Tipo da margem do gráfico de MORTALIDADE
+  tipoCaixaE <<- "L"
+
+  #Tipo da margem da legenda de MORTALIDADE
+  tipoCaixaEE <<- "n"
 
   #determina espaço vazio na pergunta se não houver grupo
   if(is.null(sexo)){
