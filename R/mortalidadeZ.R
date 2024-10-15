@@ -469,18 +469,18 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
         #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
         M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
         morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
-        morte[1] <<- c_infinito
-        morte[2] <<- k
-        morte[3] <<- tzero
-        morte[4] <<- phi
-        morte[5] <<- M
-        morte[6] <<- Z
-        morte[7] <<- Z-M
-        morte[8] <<- morte[7]/Z
+        morte[1] <<- round(c_infinito,2)
+        morte[2] <<- round(k,2)
+        morte[3] <<- round(tzero,2)
+        morte[4] <<- round(phi,2)
+        morte[5] <<- round(M,2)
+        morte[6] <<- round(Z,2)
+        morte[7] <<- round(Z-M,2)
+        morte[8] <<- round(morte[7]/Z,2)
         #Fopt Patterson (1992)
-        morte[9] <<- 0.5*M
+        morte[9] <<- round(0.5*M,2)
         #Flimit Patterson (1992)
-        morte[10] <<- 2/3*M
+        morte[10] <<- round(2/3*M,2)
         names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
         return(morte)
       }
