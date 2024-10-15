@@ -75,6 +75,9 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
   while(ok==0){
     if(is.null(adhoc)) {
       modelOld <<- modelo
+     }else{
+      modelo <<-""
+      modelOld <<-""
      }
     
     #perguntar se quer informar limite mínimo e máximo do comprimento ####
