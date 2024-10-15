@@ -818,7 +818,10 @@ graficoZ <- function(LiN, tAspas, lnNdT, agarraX, agarraY, labelZX, labelZY, mai
 
   #Tipo da margem da legenda de MORTALIDADE
   tipoCaixaEE <<- "n"
-
+  
+ #cor do ponto no gráfico de Mortalidade
+  corPontoE <<- "Black"
+  
   #determina espaço vazio na pergunta se não houver grupo
   if(is.null(sexo)){
     sexo <<- ""
