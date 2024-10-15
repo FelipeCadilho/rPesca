@@ -32,7 +32,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
   #determina espaço vazio na pergunta se estiver fora da rotina rPesca
   if(is.null(modelo)){
     modelo <<-""
-    modeloOld <<-""
+    modelOld <<-""
   }
   
   #determina os nomes das labels e chama pacotes
