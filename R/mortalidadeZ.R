@@ -5,8 +5,8 @@
 #'@param c_infinito Contém o comprimento assintótico.
 #'@param k Contém a taxa de crescimento.
 #'@param tzero Contém o tempo no comprimento zero.
-#'@param dados Contém o dataframe com os dados importados.
-#'@param real_cont_fw Contém o "n" da amostra.
+#'@param dados Contém o dataframe com os dados SOMENTE DE COMPRIMENTO importados.
+#'@param n_tamanho_inicial Contém o "n" da amostra.
 #'@param idioma Contém o idioma do resultado.
 #'@param modelo Contém o modelo usado para cálculos.
 #'@param mainE Contém o título do gráfico.
@@ -17,11 +17,11 @@
 #'@param adhoc Determina uma análise fora da rotina do rPesca quando igual 1. (O padrão é NULL) 
 #'
 #'@examples
-#'mortalidadeZ(c_infinito, k, tzero, dados, real_cont_fw, idioma, modelo, mainE, labX, labY, sexo, label)
+#'mortalidadeZ(c_infinito, k, tzero, dados, n_tamanho_inicial, idioma, modelo, mainE, labX, labY, sexo, label)
 #'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados, idioma=1, adhoc=1)
 #'
 #'@export
-mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma, modelo=NULL, mainE=NULL, labX=NULL, labY=NULL, sexo=NULL, label=NULL, adhoc=NULL){
+mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, idioma, modelo=NULL, mainE=NULL, labX=NULL, labY=NULL, sexo=NULL, label=NULL, adhoc=NULL){
   
   #atualizada 02/10/2024 para utilização fora da rotina rPesca
   #determina espaço vazio na pergunta se não houver grupo
@@ -61,8 +61,8 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
       labX="t(years)" 
       labY="Ln(N/dt)"
     }
-    real_cont_fw <<- nrow(dados[,1])
-    real_cont_fww <<- nrow(dados[,1])
+    n_tamanho_inicial <<- nrow(dados[,1])
+    n_tamanho_final <<- nrow(dados[,1])
     c_infinito <<- c_infinito
     k <<- k
     tzero <<- tzero
@@ -117,22 +117,22 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     }
     
     #selecionar os dados de comprimento da planilha matriz que estão entre o limite mínimo e máximo do comprimento definido pelo usuário ####
-    classe_ct_bruto <<- dados
-    classess_ct <<- data.frame(idade=c(0), ct=c(0))
+    tamanho_bruto <<- dados
+    tamanho <<- data.frame(ct=c(0))
     indiceClasseZ <<- 1
     if(is.null(adhoc)){
-      real_cont_fww <<- real_cont_fw
+      n_tamanho_final <<- n_tamanho_inicial
     }
     if(toupper(respostaLimCt)=="S"){
-      for(i in 1:real_cont_fw){
-        if(classe_ct_bruto[i,2]>=respostaLimMin && classe_ct_bruto[i,2]<= respostaLimMax){
-          classess_ct[indiceClasseZ,2] <<- classe_ct_bruto[i,2]
+      for(i in 1:n_tamanho_inicial){
+        if(tamanho_bruto[i,]>=respostaLimMin && tamanho_bruto[i,]<= respostaLimMax){
+          tamanho[indiceClasseZ,] <<- tamanho_bruto[i,]
           indiceClasseZ <<- indiceClasseZ+1
         }
-        real_cont_fww <<- indiceClasseZ-1
+        n_tamanho_final <<- indiceClasseZ-1
       }
     }else if(toupper(respostaLimCt)=="N"){
-      classess_ct <<- classe_ct_bruto
+      tamanho <<- tamanho_bruto
     }
     
     #suprimir alerta de erro ####
@@ -140,7 +140,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     options(warn = -1)
     
     #inicia variável do maior e menor comprimento ####
-    if(!is.null(adhoc)){
+    if(is.null(adhoc)){
       if(idioma==1){
         cat("\nDeseja calcular a classe de comprimento?(S/N)\n")
       }else if(idioma==2){
@@ -148,17 +148,17 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
       }
     }
     resposta <- toupper(readLines(n = 1))
-    if(resposta == "S" || resposta=="Y" || is.null(adhoc)){
+    if(resposta == "S" || resposta=="Y"){
       limSup <<- 0
       limInf <<- 9999999999
       
       #procura o maior e o menor comprimento dos dados
-      for(i in 1:real_cont_fww){
-        if(classess_ct[i,2]>limSup){
-          limSup <<- classess_ct[i,2]
+      for(i in 1:n_tamanho_final){
+        if(tamanho[i,]>limSup){
+          limSup <<- tamanho[i,]
         }
-        if(classess_ct[i,2]<limInf){
-          limInf <<- classess_ct[i,2]
+        if(tamanho[i,]<limInf){
+          limInf <<- tamanho[i,]
         }
       }
       
@@ -193,8 +193,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
           cat("\nDigite o valor desejado para a classe:\n")
         }else if(idioma == 2){
           cat("\nEnter the desired value for the class:\n")
-        }
-        
+        }        
         
         #salva classe anterior para caso usuário não coloque valor algum
         classeLog = classe
@@ -209,21 +208,23 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
       }
       
       #calcula as classes de comprimento
-      for(i in 1:real_cont_fww){
-        classes_ct[i,1] <<- round((classess_ct[i,2]/classe),0)*classe
+      for(i in 1:n_tamanho_final){
+        classes_ct[i,] <<- round((tamanho[i,]/classe),0)*classe
       }
     }else{
       #nao calcula a classe (dado já distribuido em classes)
       #ordena conjunto
-      classess_ct <<- classess_ct %>% arrange(classess_ct[[2]])
-      dados_unicos <<- classess_ct[,2] %>% distinct()
+      tamanho <<- tamanho_bruto %>% arrange(tamanho_bruto)
+      
       #identifica a classe usada
-      classe <<- dados_unicos[2,]-dados_unicos[1,]
+      classe <<- tamanho[2,]-tamanho[1,]
+      
       #inicia novo conjunto do ct
       classes_ct <<- data.frame(ct=c(0))
+      
       #atribui os ct ao novo conjunto
-      for(i in 1:real_cont_fww){
-        classes_ct[i,1] <<- classess_ct[i,2]
+      for(i in 1:n_tamanho_final){
+        classes_ct[i,] <<- tamanho[i,]
       }
     }
     
@@ -452,7 +453,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, real_cont_fw=NULL, idioma,
     }
     
     #chama o gráfico ####
-    graficoZ(lin, z_xx, z_yy, agarraX, agarraY, labelB, labelC, labelA, modelOld, sexo, mainE, labX, labY,classe)
+    graficoZ(lin, z_xx, z_yy, agarraX, agarraY, labelB, labelC, labelA, modelOld, sexo, mainE, labX, labY, classe)
     
     if(idioma == 1){
       cat("\nDeseja refazer esta etapa? S/N\n")
