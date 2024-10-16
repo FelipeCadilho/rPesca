@@ -511,29 +511,28 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     Z <<- abs(1/(idade_media-tAspas))
 
     if(!is.null(c_infinito) && !is.null(k) && !is.null(tzero)){
-    #indice da performance de crescimento Pauly and Munro (1984)
-    phi <<- round(log10(k)+2*log10(c_infinito),7)
-        
-    #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
-    M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
-    morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
-    morte[1] <<- round(c_infinito,2)
-    morte[2] <<- round(k,2)
-    morte[3] <<- round(tzero,2)
-    morte[4] <<- round(phi,2)
-    morte[5] <<- round(M,2)
-    morte[6] <<- round(Z,2)
-    morte[7] <<- round(Z-M,2)
-    morte[8] <<- round(morte[7]/Z,2)
-    #Fopt Patterson (1992)
-    morte[9] <<- round(0.5*M,2)
-    #Flimit Patterson (1992)
-    morte[10] <<- round(2/3*M,2)
-    names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit)
+      #indice da performance de crescimento Pauly and Munro (1984)
+      phi <<- round(log10(k)+2*log10(c_infinito),7)
+          
+      #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+      M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
+      morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
+      morte[1] <<- round(c_infinito,2)
+      morte[2] <<- round(k,2)
+      morte[3] <<- round(tzero,2)
+      morte[4] <<- round(phi,2)
+      morte[5] <<- round(M,2)
+      morte[6] <<- round(Z,2)
+      morte[7] <<- round(Z-M,2)
+      morte[8] <<- round(morte[7]/Z,2)
+      #Fopt Patterson (1992)
+      morte[9] <<- round(0.5*M,2)
+      #Flimit Patterson (1992)
+      morte[10] <<- round(2/3*M,2)
+      names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit)
     }else{
       morte <<- data.frame(Z=c(0))
       morte <<- round(Z,2)
-      names(morte) <<- c("Z")
     }
     return(morte)    
   }
