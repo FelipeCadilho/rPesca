@@ -1085,11 +1085,11 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 }
 ############################## RESULTADOS E FIM DE ALGORITMO ####
   if(idioma==1){
-    cat("\n\n################################## Resumo dos resultados ##################################\n\n")
-    FIMalgoritmo <<- "\n\n################################## Fim do código ##################################\n\n"
+    cat("\n\n############################## Resumo dos resultados #############################\n\n")
+    FIMalgoritmo <<- "############################## Fim do código ##############################"
   }else if(idioma==2){
-    cat("\n\n################################## Summary of the results ##################################\n\n")
-    FIMalgoritmo <<- "\n\n################################## End of code ##################################\n\n"
+    cat("\n\n############################## Summary of the results #############################\n\n")
+    FIMalgoritmo <<- "############################## End of code ##############################"
   }
   
   if(is.null(grupo)){
@@ -1132,6 +1132,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(length(cinfktzeroL)>5){
           cat("\nZ baseado em comprimento:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F,"E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit,"\n")
         }
+      cat("\n\n")
       return(FIMalgoritmo)
       
     }else if(idioma == 2){
@@ -1172,6 +1173,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
           cat("\nZ Length-based:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F, "E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit,"\n")
         }
     }
+    cat("\n\n")
     return(FIMalgoritmo)
     
     }else{
@@ -1252,6 +1254,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(length(cinfktzeroLF)>5){
           cat("\nZ baseado em comprimento:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit,"\n")
         }        
+        cat("\n\n")
         return(FIMalgoritmo)
         
       }else if(idioma == 2){        
@@ -1329,6 +1332,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(length(cinfktzeroLF)>5){
           cat("\nZ Length-based:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit,"\n")
         }        
+        cat("\n\n")
         return(FIMalgoritmo)        
       }
   }
