@@ -29,6 +29,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inic
       #chama pacote de controle de dados
       library("dplyr")
       idades_mortalidade <<- data.frame(idade=dados_mortalidade)
+      names(idades_mortalidade) <<- c("idade")
       tabelaMortalidade <<- idades_mortalidade %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
       rm(idades_mortalidade, envir = .GlobalEnv)
       idade_media <<- sum(tabelaMortalidade$somatorio)/sum(tabelaMortalidade$ind)
