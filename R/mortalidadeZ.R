@@ -186,14 +186,18 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inic
     #suprimir alerta de erro ####
     oldw <- getOption("warn")
     options(warn = -1)
-    
-    #inicia variável do maior e menor comprimento ####
-    if(idioma==1){
+
+    if(is.null(adhoc)){
+      resposta <- "Y"
+    }else{
+      #inicia variável do maior e menor comprimento ####
+      if(idioma==1){
         cat("\nDeseja calcular a classe de comprimento?(S/N)\n")
-    }else if(idioma==2){
-       cat("\nWould you like to calculate the length class?(Y/N)\n")
+      }else if(idioma==2){
+        cat("\nWould you like to calculate the length class?(Y/N)\n")
+      }
+      resposta <- toupper(readLines(n = 1))
     }
-    resposta <- toupper(readLines(n = 1))
     if(resposta == "S" || resposta=="Y"){
       limSup <<- 0
       limInf <<- 9999999999
