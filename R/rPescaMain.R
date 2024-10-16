@@ -1152,7 +1152,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(!is.null(mortalidadeIdadeGP$Z)){
             cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
         }
-        if(!is.null(cinfktzeroG$Z){
+        if(!is.null(cinfktzeroG$Z)){
         cat("\nZ Length-based:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit)
         }
         
