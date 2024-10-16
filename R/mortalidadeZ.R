@@ -28,9 +28,9 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inic
     if(adhoc == 2){    
       #chama pacote de controle de dados
       library("dplyr")
-      dadus <<- data.frame(idade=dados_mortalidade)
-      tabelaMortalidade <<- dadus %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
-      rm(dadus, envir = .GlobalEnv)
+      idades_mortalidade <<- data.frame(idade=dados_mortalidade)
+      tabelaMortalidade <<- idades_mortalidade %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
+      rm(idades_mortalidade, envir = .GlobalEnv)
       idade_media <<- sum(tabelaMortalidade$somatorio)/sum(tabelaMortalidade$ind)
       if(idioma == 1 ){
         cat("\nInforme a idade a partir da qual todos os peixes dessa idade ou\nmais velhos são totalmente explorados:\n")
