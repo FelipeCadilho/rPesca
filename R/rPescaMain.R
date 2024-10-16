@@ -729,6 +729,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
             mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
             mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
+          rm(morte, envir = .GlobalEnv)
         }
         #### BERTALANFFY ####
         if(idioma == 1){
@@ -745,6 +746,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
             mortalidadeIdadeAVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
             mortalidadeIdadeBVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
+          rm(morte, envir = .GlobalEnv)
         }
         #### GOMPERTZ ####
         if(idioma == 1){
@@ -761,6 +763,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
             mortalidadeIdadeAGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
             mortalidadeIdadeBGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
+          rm(morte, envir = .GlobalEnv)
         }
         #### LOGISTICA ####
         if(idioma == 1){
@@ -777,6 +780,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
             mortalidadeIdadeALG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
             mortalidadeIdadeBLG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
+          rm(morte, envir = .GlobalEnv)
         }
      }else{
         #### FORD-WALFORD PADRÃO ####        
@@ -787,6 +791,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
           mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
         }
+        rm(morte, envir = .GlobalEnv)
       }
    }
    if(respostaMortalidadeCalc==2 || respostaMortalidadeCalc==3){ 
@@ -929,7 +934,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     }
   }
      
-  ######################################### TESTE DE VEROSSIMILHANÇA KIMURA (1980)
+  ######################################### TESTE DE VEROSSIMILHANÇA KIMURA (1980) ####
   if(!is.null(grupo)){
     if(idioma == 1){
       cat("\nA partir dos parâmetros de Ford-Walford, \ndeseja realizar o teste de verossimilhança de Kimura(1980)\ndisponibilizado pelo pacote fishmethods? S/N\n")
