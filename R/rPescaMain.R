@@ -1148,7 +1148,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB$[[3]])
+        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
         if(!is.null(mortalidadeIdadeVB$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
         }
