@@ -1083,273 +1083,253 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     }
   }
 }
-  cat("\n")
+############################## RESULTADOS E FIM DE ALGORITMO ####
+  if(idioma==1){
+    cat("\n\n################################## Resumo dos resultados ##################################\n\n")
+    FIMalgoritmo <<- "\n\n################################## Fim do código ##################################\n\n"
+  }else if(idioma==2){
+    cat("\n\n################################## Summary of the results ##################################\n\n")
+    FIMalgoritmo <<- "\n\n################################## End of code ##################################\n\n"
+  }
+  
   if(is.null(grupo)){
     #Sem grupo
     removedor(7)
     if(idioma == 1){
-      #if(!is.null(mortalidadeIdade)){
-      #  return(list(FordWalford = round(ford,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroG,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroL,2),
-      #           Mortalidade_Baseada_Idade = round(mortalidadeIdade,2)))
-      #}else{
-      #  return(list(FordWalford = round(ford,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroG,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroL,2)))
-      #}
+      
       #### FORD ####
-        cat("\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
+        cat("\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]],"\n")
         if(length(mortalidadeIdadeford)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit,"\n")
         }
         if(length(ford)>5){
-          cat("\nZ baseado em comprimento:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit)
+          cat("\nZ baseado em comprimento:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
+        cat("\nBertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
         if(length(mortalidadeIdadeVB)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit,"\n")
         }
         if(length(cinfktzeroB)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
+        cat("\nGompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
         if(length(mortalidadeIdadeGP)>5){
-            cat("\nZ baseado em idade:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
+            cat("\nZ baseado em idade:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit,"\n")
         }
         if(length(cinfktzeroG)>5){
-        cat("\nZ baseado em comprimento:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit)
+        cat("\nZ baseado em comprimento:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nLogística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
+        cat("\nLogística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
         if(length(mortalidadeIdadeLG)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit,"\n")
         }
         if(length(cinfktzeroL)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F,"E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F,"E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit,"\n")
         }
-      return()
+      return(FIMalgoritmo)
       
     }else if(idioma == 2){
-      #if(!is.null(mortalidadeIdade)){
-      #  return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroL,2),
-      #           Age_Based_Mortality = round(mortalidadeIdade,2)))
-      #}else{
-      #  return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
-      #}
+     
       #### FORD ####
-        cat("\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
+        cat("\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]],"\n")
         if(length(mortalidadeIdadeford)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit,"\n")
         }
         if(length(ford)>5){
-          cat("\nZ Length-based:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit)
+          cat("\nZ Length-based:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
+        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
         if(length(mortalidadeIdadeVB)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit,"\n")
         }
         if(length(cinfktzeroB)>5){
-          cat("\nZ Length-based:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit)
+          cat("\nZ Length-based:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
+        cat("\nGompertz\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
         if(length(mortalidadeIdadeGP)>5){
-            cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
+            cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit,"\n")
         }
         if(length(cinfktzeroG)>5){
-        cat("\nZ Length-based:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit)
+        cat("\nZ Length-based:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nLogistic\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
+        cat("\nLogistic\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
         if(length(mortalidadeIdadeLG)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit,"\n")
         }
         if(length(cinfktzeroL)>5){
-          cat("\nZ Length-based:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F, "E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit)
+          cat("\nZ Length-based:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F, "E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit,"\n")
         }
     }
-    return()
+    return(FIMalgoritmo)
     
     }else{
     #Com grupo
     removedor(8)
       if(idioma == 1){
-        #if(!is.null(mortalidadeIdade)){
-        #return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroLM,2),
-        #            Mortalidade_Baseada_Idade = round(mortalidadeIdadeA,2),
-        #            Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroLF,2),
-        #            Mortalidade_Baseada_Idade = round(mortalidadeIdadeB,2)))
-        #}else{
-        #  return(list(Grupo = "A",FordWalford = round(fordA,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroLM,2),
-        #            Grupo = "B",FordWalford = round(fordB,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroLF,2)))
-        #}      
-        
+                
         #GRUPO A
         #### FORD ####
-        cat("\nGrupo = A\nFord-Walford\nCinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
+        cat("\nGrupo = A\nFord-Walford\nCinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]],"\n")
         if(length(mortalidadeIdadeAford)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit,"\n")
         }
         if(length(fordA)>5){
-          cat("\nZ baseado em comprimento:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit)
+          cat("\nZ baseado em comprimento:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
+        cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
         if(length(mortalidadeIdadeAVB)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit,"\n")
         }
         if(length(cinfktzeroBM)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
+        cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
         if(length(mortalidadeIdadeAGP)>5){
-            cat("\nZ baseado em idade:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
+            cat("\nZ baseado em idade:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit,"\n")
         }
         if(length(cinfktzeroGM)>5){
-        cat("\nZ baseado em comprimento:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit)
+        cat("\nZ baseado em comprimento:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
+        cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
         if(length(mortalidadeIdadeALG)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit,"\n")
         }
         if(length(cinfktzeroLM)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:",cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:",cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit,"\n")
         }
         
         #GRUPO B
         #### FORD ####
-        cat("\nGrupo = B\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
+        cat("\nGrupo = B\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]],"\n")
         if(length(mortalidadeIdadeBford)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit,"\n")
         }
         if(length(fordB)>5){
-          cat("\nZ baseado em comprimento:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit)
+          cat("\nZ baseado em comprimento:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
+        cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
         if(length(mortalidadeIdadeBVB)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit,"\n")
         }
         if(length(cinfktzeroBF)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
+        cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
         if(length(mortalidadeIdadeBGP)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit,"\n")
         }
         if(length(cinfktzeroGF)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
+        cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
         if(length(mortalidadeIdadeBLG)>5){
-          cat("\nZ baseado em idade:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
+          cat("\nZ baseado em idade:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit,"\n")
         }
         if(length(cinfktzeroLF)>5){
-          cat("\nZ baseado em comprimento:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit)
+          cat("\nZ baseado em comprimento:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit,"\n")
         }        
-        return()
+        return(FIMalgoritmo)
         
       }else if(idioma == 2){        
-        #if(!is.null(mortalidadeIdade)){
-        #return(list(Group = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
-        #            Age_Based_Mortality = round(mortalidadeIdadeA,2),
-        #            Group = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2),
-        #           Age_Based_Mortality = round(mortalidadeIdadeB,2)))  
-        #}else{
-        #return(list(Group = "A",FordWalford = round(fordA,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBM,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGM,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLM,2),
-        #            Group = "B",FordWalford = round(fordB,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroBF,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroGF,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroLF,2)))
-        #}
-        
+               
         #GRUPO A
         #### FORD ####
-        cat("\nGroup = A\nFord-Walford\nLinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
+        cat("\nGroup = A\nFord-Walford\nLinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]],"\n")
         if(length(mortalidadeIdadeAford)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit,"\n")
         }
         if(length(fordA)>5){
-          cat("\nZ Length-based:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit)
+          cat("\nZ Length-based:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
+        cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
         if(length(mortalidadeIdadeAVB)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit,"\n")
         }
         if(length(cinfktzeroBM)>5){
-          cat("\nZ Length-based:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit)
+          cat("\nZ Length-based:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
+        cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
         if(length(mortalidadeIdadeAGP)>5){
-            cat("\nZ Age-based:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
+            cat("\nZ Age-based:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit,"\n")
         }
         if(length(cinfktzeroGM)>5){
-        cat("\nZ Length-based:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit)
+        cat("\nZ Length-based:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
+        cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
         if(length(mortalidadeIdadeALG)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit,"\n")
         }
         if(length(cinfktzeroLM)>5){
-          cat("\nZ Length-based:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:", cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit)
+          cat("\nZ Length-based:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:", cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit,"\n")
         }
         
         #GRUPO B
         #### FORD ####
-        cat("\nGroup = B\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
+        cat("\nGroup = B\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]],"\n")
         if(length(mortalidadeIdadeBford)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit,"\n")
         }
         if(length(fordB)>5){
-          cat("\nZ Length-based:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit)
+          cat("\nZ Length-based:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit,"\n")
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
+        cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
         if(length(mortalidadeIdadeBVB)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit,"\n")
         }
         if(length(cinfktzeroBF)>5){
-          cat("\nZ Length-based:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit)
+          cat("\nZ Length-based:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit,"\n")
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
+        cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
         if(length(mortalidadeIdadeBGP)>5){
-            cat("\nZ Age-based:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
+            cat("\nZ Age-based:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit,"\n")
         }
         if(length(cinfktzeroGF)>5){
-        cat("\nZ Length-based:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit)
+        cat("\nZ Length-based:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit,"\n")
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
+        cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
         if(length(mortalidadeIdadeBLG)>5){
-          cat("\nZ Age-based:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
+          cat("\nZ Age-based:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit,"\n")
         }
         if(length(cinfktzeroLF)>5){
-          cat("\nZ Length-based:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit)
+          cat("\nZ Length-based:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit,"\n")
         }        
-        return()        
+        return(FIMalgoritmo)        
       }
   }
 }
