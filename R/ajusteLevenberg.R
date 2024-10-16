@@ -526,5 +526,10 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
 
   }
 
+  #teste AIC
+  AIC_bertalanffyLM <<- AIC(vbl)
+  AIC_gompertzLM <<- AIC(gom)
+  AIC_logisticaLM <<- AIC(lgc)
+    
   return()
 }
