@@ -5,7 +5,7 @@
 #'@param c_infinito Contém o comprimento assintótico.
 #'@param k Contém a taxa de crescimento.
 #'@param tzero Contém o tempo no comprimento zero.
-#'@param dados Contém o dataframe com os dados SOMENTE DE COMPRIMENTO importados.
+#'@param dados_mortalidade Contém o dataframe com os dados SOMENTE DE COMPRIMENTO importados.
 #'@param n_tamanho_inicial Contém o "n" da amostra.
 #'@param idioma Contém o idioma do resultado.
 #'@param modelo Contém o modelo usado para cálculos.
@@ -17,18 +17,18 @@
 #'@param adhoc Determina uma análise fora da rotina do rPesca quando igual 1 para dados de comprimento e 2 para dados de idade. (O padrão é NULL) 
 #'
 #'@examples
-#'mortalidadeZ(c_infinito, k, tzero, dados, n_tamanho_inicial, idioma, modelo, mainE, labX, labY, sexo, label)
-#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados_tamanho, idioma=1, adhoc=1)
-#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados_idade, idioma=1, adhoc=2)
+#'mortalidadeZ(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inicial, idioma, modelo, mainE, labX, labY, sexo, label)
+#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados_mortalidade=dados_tamanho, idioma=1, adhoc=1)
+#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados_mortalidade=dados_idade, idioma=1, adhoc=2)
 #'
 #'@export
-mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, idioma, modelo=NULL, mainE=NULL, labX=NULL, labY=NULL, sexo=NULL, label=NULL, adhoc=NULL){
+mortalidadeZ <- function(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inicial=NULL, idioma, modelo=NULL, mainE=NULL, labX=NULL, labY=NULL, sexo=NULL, label=NULL, adhoc=NULL){
   if(!is.null(adhoc)){
     #### DADOS BASEADOS EM IDADE ####
     if(adhoc == 2){    
       #chama pacote de controle de dados
       library("dplyr")
-      dadus <<- data.frame(idade=dados)
+      dadus <<- data.frame(idade=dados_mortalidade)
       tabelaMortalidade <<- dadus %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
       rm(dadus, envir = .GlobalEnv)
       idade_media <<- sum(tabelaMortalidade$somatorio)/sum(tabelaMortalidade$ind)
@@ -165,7 +165,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     }
     
     #selecionar os dados de comprimento da planilha matriz que estão entre o limite mínimo e máximo do comprimento definido pelo usuário ####
-    tamanho_bruto <<- data.frame(dados)
+    tamanho_bruto <<- data.frame(ct=dados_mortalidade)
     tamanho <<- data.frame(ct=c(0))
     indiceClasseZ <<- 1
     if(is.null(adhoc)){
