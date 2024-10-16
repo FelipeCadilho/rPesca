@@ -1095,7 +1095,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #  return(list(FordWalford = round(ford,2), Bertalanffy_Ajustado_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_Ajustado_Levenberg_Marquardt = round(cinfktzeroG,2), Logistica_Ajustado_Levenberg_Marquardt = round(cinfktzeroL,2)))
       #}
       #### FORD ####
-        cat("\nFord-Walford\nCinf:",ford$c_infinito,"k:",ford$k,"t0:",ford$tzero)
+        cat("\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
         if(!is.null(mortalidadeIdadeford$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
         }
@@ -1104,7 +1104,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nCinf:",cinfktzeroB$c_infinito,"k:",cinfktzeroB$k,"t0:",cinfktzeroB$tzero)
+        cat("\nBertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
         if(!is.null(mortalidadeIdadeVB$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
         }
@@ -1113,7 +1113,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nCinf:",cinfktzeroG$c_infinito,"k:",cinfktzeroG$k,"t0:",cinfktzeroG$tzero)
+        cat("\nGompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
         if(!is.null(mortalidadeIdadeGP$Z)){
             cat("\nZ baseado em idade:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
         }
@@ -1122,7 +1122,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nLogística\nCinf:",cinfktzeroL$c_infinito,"k:",cinfktzeroL$k,"t0:",cinfktzeroL$tzero)
+        cat("\nLogística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
         if(!is.null(mortalidadeIdadeLG$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
         }
@@ -1139,7 +1139,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #  return(list(FordWalford = round(ford,2), Bertalanffy_fitted_Levenberg_Marquardt = round(cinfktzeroB,2), Gompertz_fitted_Levenberg_Marquardt = round(cinfktzeroG,2), Logistic_fitted_Levenberg_Marquardt = round(cinfktzeroL,2)))
       #}
       #### FORD ####
-        cat("\nFord-Walford\nLinf:",ford$c_infinito,"k:",ford$k,"t0:",ford$tzero)
+        cat("\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
         if(!is.null(mortalidadeIdadeford$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
         }
@@ -1148,7 +1148,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nLinf:",cinfktzeroB$c_infinito,"k:",cinfktzeroB$k,"t0:",cinfktzeroB$tzero)
+        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB$[[3]])
         if(!is.null(mortalidadeIdadeVB$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
         }
@@ -1157,7 +1157,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nLinf:",cinfktzeroG$c_infinito,"k:",cinfktzeroG$k,"t0:",cinfktzeroG$tzero)
+        cat("\nGompertz\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
         if(!is.null(mortalidadeIdadeGP$Z)){
             cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
         }
@@ -1166,7 +1166,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nLogistic\nLinf:",cinfktzeroL$c_infinito,"k:",cinfktzeroL$k,"t0:",cinfktzeroL$tzero)
+        cat("\nLogistic\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
         if(!is.null(mortalidadeIdadeLG$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
         }
@@ -1192,7 +1192,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         
         #GRUPO A
         #### FORD ####
-        cat("\nGrupo = A\nFord-Walford\nCinf:",fordA$c_infinito,"k:",fordA$k,"t0:",fordA$tzero)
+        cat("\nGrupo = A\nFord-Walford\nCinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
         if(!is.null(mortalidadeIdadeAford$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
         }
@@ -1201,7 +1201,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM$c_infinito,"k:",cinfktzeroBM$k,"t0:",cinfktzeroBM$tzero)
+        cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
         if(!is.null(mortalidadeIdadeAVB$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
         }
@@ -1210,7 +1210,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM$c_infinito,"k:",cinfktzeroGM$k,"t0:",cinfktzeroGM$tzero)
+        cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
         if(!is.null(mortalidadeIdadeAGP$Z)){
             cat("\nZ baseado em idade:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
         }
@@ -1219,7 +1219,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM$c_infinito,"k:",cinfktzeroLM$k,"t0:",cinfktzeroLM$tzero)
+        cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
         if(!is.null(mortalidadeIdadeALG$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
         }
@@ -1229,7 +1229,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         
         #GRUPO B
         #### FORD ####
-        cat("\nGrupo = B\nFord-Walford\nCinf:",ford$c_infinito,"k:",ford$k,"t0:",ford$tzero)
+        cat("\nGrupo = B\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
         if(!is.null(mortalidadeIdadeBford$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
         }
@@ -1238,7 +1238,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF$c_infinito,"k:",cinfktzeroBF$k,"t0:",cinfktzeroBF$tzero)
+        cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
         if(!is.null(mortalidadeIdadeBVB$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
         }
@@ -1247,7 +1247,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF$c_infinito,"k:",cinfktzeroGF$k,"t0:",cinfktzeroGF$tzero)
+        cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
         if(!is.null(mortalidadeIdadeBGP$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
         }
@@ -1256,7 +1256,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF$c_infinito,"k:",cinfktzeroLF$k,"t0:",cinfktzeroLF$tzero)
+        cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
         if(!is.null(mortalidadeIdadeBLG$Z)){
           cat("\nZ baseado em idade:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
         }
@@ -1278,7 +1278,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         
         #GRUPO A
         #### FORD ####
-        cat("\nGroup = A\nFord-Walford\nLinf:",fordA$c_infinito,"k:",fordA$k,"t0:",fordA$tzero)
+        cat("\nGroup = A\nFord-Walford\nLinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
         if(!is.null(mortalidadeIdadeAford$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
         }
@@ -1287,7 +1287,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM$c_infinito,"k:",cinfktzeroBM$k,"t0:",cinfktzeroBM$tzero)
+        cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
         if(!is.null(mortalidadeIdadeAVB$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
         }
@@ -1296,7 +1296,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM$c_infinito,"k:",cinfktzeroGM$k,"t0:",cinfktzeroGM$tzero)
+        cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
         if(!is.null(mortalidadeIdadeAGP$Z)){
             cat("\nZ Age-based:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
         }
@@ -1305,7 +1305,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM$c_infinito,"k:",cinfktzeroLM$k,"t0:",cinfktzeroLM$tzero)
+        cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
         if(!is.null(mortalidadeIdadeALG$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
         }
@@ -1315,7 +1315,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         
         #GRUPO B
         #### FORD ####
-        cat("\nGroup = B\nFord-Walford\nLinf:",ford$c_infinito,"k:",ford$k,"t0:",ford$tzero)
+        cat("\nGroup = B\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
         if(!is.null(mortalidadeIdadeBford$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
         }
@@ -1324,7 +1324,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF$c_infinito,"k:",cinfktzeroBF$k,"t0:",cinfktzeroBF$tzero)
+        cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
         if(!is.null(mortalidadeIdadeBVB$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
         }
@@ -1333,7 +1333,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF$c_infinito,"k:",cinfktzeroGF$k,"t0:",cinfktzeroGF$tzero)
+        cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
         if(!is.null(mortalidadeIdadeBGP$Z)){
             cat("\nZ Age-based:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
         }
@@ -1342,7 +1342,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF$c_infinito,"k:",cinfktzeroLF$k,"t0:",cinfktzeroLF$tzero)
+        cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
         if(!is.null(mortalidadeIdadeBLG$Z)){
           cat("\nZ Age-based:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
         }
