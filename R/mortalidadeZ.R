@@ -14,11 +14,12 @@
 #'@param labY Contém o rótulo para eixo y.
 #'@param sexo Contém um texto referente ao grupo atual.
 #'@param label Contém a legenda referente ao grupo atual.
-#'@param adhoc Determina uma análise fora da rotina do rPesca quando igual 1. (O padrão é NULL) 
+#'@param adhoc Determina uma análise fora da rotina do rPesca quando igual 1 para dados de comprimento e 2 para dados de idade. (O padrão é NULL) 
 #'
 #'@examples
 #'mortalidadeZ(c_infinito, k, tzero, dados, n_tamanho_inicial, idioma, modelo, mainE, labX, labY, sexo, label)
-#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados, idioma=1, adhoc=1)
+#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados_tamanho, idioma=1, adhoc=1)
+#'mortalidadeZ(c_infinito = 35.5, k=0.10, tzero=-1.10, dados=dados_idade, idioma=1, adhoc=2)
 #'
 #'@export
 mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, idioma, modelo=NULL, mainE=NULL, labX=NULL, labY=NULL, sexo=NULL, label=NULL, adhoc=NULL){
@@ -51,6 +52,8 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     
     #chama pacote de teste de verossimilhança de Kimura (1980)
     library("fishmethods")
+
+    if(adhoc==2) return(mortalidade_idade(dados))
     if(idioma==1){
       mainE="Curva de Captura Linearizada Baseada no Comprimento" 
       labX="t(anos)" 
@@ -464,34 +467,74 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     ok <<- readLines(n=1)
     #se usuário está satisfeito encerra
     if(ok == 0 || toupper(ok) == "N"){
-      ok <<- 1
-      if(!is.null(adhoc)){
-        #indice da performance de crescimento Pauly and Munro (1984)
-        phi <<- round(log10(k)+2*log10(c_infinito),7)
-        
-        #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
-        M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
-        morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
-        morte[1] <<- round(c_infinito,2)
-        morte[2] <<- round(k,2)
-        morte[3] <<- round(tzero,2)
-        morte[4] <<- round(phi,2)
-        morte[5] <<- round(M,2)
-        morte[6] <<- round(Z,2)
-        morte[7] <<- round(Z-M,2)
-        morte[8] <<- round(morte[7]/Z,2)
-        #Fopt Patterson (1992)
-        morte[9] <<- round(0.5*M,2)
-        #Flimit Patterson (1992)
-        morte[10] <<- round(2/3*M,2)
-        names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
-        return(morte)
-      }
+      ok <<- 1      
+      #indice da performance de crescimento Pauly and Munro (1984)
+      phi <<- round(log10(k)+2*log10(c_infinito),7)        
+      #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+      M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
+      morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
+      morte[1] <<- round(c_infinito,2)
+      morte[2] <<- round(k,2)
+      morte[3] <<- round(tzero,2)
+      morte[4] <<- round(phi,2)
+      morte[5] <<- round(M,2)
+      morte[6] <<- round(Z,2)
+      morte[7] <<- round(Z-M,2)
+      morte[8] <<- round(morte[7]/Z,2)
+      #Fopt Patterson (1992)
+      morte[9] <<- round(0.5*M,2)
+      #Flimit Patterson (1992)
+      morte[10] <<- round(2/3*M,2)
+      names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
+      #if(is.null(adhoc)){
+      #  rm( , envir = .GlobalEnv)
+      #}
+      return(morte)      
     }else if(toupper(ok) == "S"||toupper(ok) == "Y"){
       #se o usuário não estiver satisfeito continua
       ok <<- 0
       rm(modelOld, envir = .GlobalEnv)
       removedor(51)
     }
+  }
+
+  #### DADOS BASEADOS EM IDADE ####
+  mortalidade_idade <- function(c_infinito=NULL, k=NULL, tzero=NULL, dados){    
+    tabelaMortalidade <<- dados %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
+    idade_media <<- sum(tabelaMortalidade$ind)/sum(tabelaMortalidade$somatorio)
+    if(idioma == 1 ){
+      cat("\nInforme a idade a partir da qual todos os peixes dessa idade ou\nmais velhos são totalmente explorados:\n")
+    }else{
+      cat("\nEnter the age from which all fish of this age or older are fully exploited:\n")
+    }
+    tAspas <<- scan(n=1)
+    Z <<- abs(1/(idade_media-tAspas))
+
+    if(!is.null(c_infinito) && !is.null(k) && !is.null(tzero)){
+    #indice da performance de crescimento Pauly and Munro (1984)
+    phi <<- round(log10(k)+2*log10(c_infinito),7)
+        
+    #mortalidade natural Then et al. (2015) Pauly_NLS-T equation
+    M = 4.118*(k^(0.73))*(c_infinito^(-0.33))
+    morte <<- data.frame(c_infinito=c(0),k=c(0),tzero=c(0),phi=c(0),M=c(0),Z=c(0),F=c(0),E=c(0),Fopt=c(0),Flimit=c(0))
+    morte[1] <<- round(c_infinito,2)
+    morte[2] <<- round(k,2)
+    morte[3] <<- round(tzero,2)
+    morte[4] <<- round(phi,2)
+    morte[5] <<- round(M,2)
+    morte[6] <<- round(Z,2)
+    morte[7] <<- round(Z-M,2)
+    morte[8] <<- round(morte[7]/Z,2)
+    #Fopt Patterson (1992)
+    morte[9] <<- round(0.5*M,2)
+    #Flimit Patterson (1992)
+    morte[10] <<- round(2/3*M,2)
+    names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit)
+    }else{
+      morte <<- data.frame(Z=c(0))
+      morte <<- round(Z,2)
+      names(morte) <<- c("Z")
+    }
+    return(morte)    
   }
 }
