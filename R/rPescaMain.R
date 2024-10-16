@@ -620,16 +620,25 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     cat("\n[GRUPO: A]\n")
 
     crescimento(dados_curvaM, c_infinitoM, kM, tzeroM, real_cont_fwA, tempoB, medida, mainNameAA, grupoA)
-
+    AIC_bertalanffyA <<- AIC_bertalanffy
+    AIC_gompertzA <<- AIC_gompertz
+    AIC_logisticaA <<- AIC_logistica
     #remove variáveis por segurança
     removedor(2)
-
+    rm(AIC_bertalanffy, envir = .GlobalEnv)
+    rm(AIC_gompertz, envir = .GlobalEnv)
+    rm(AIC_logistica, envir = .GlobalEnv)
     cat("\n[GRUPO: B]\n")
 
     crescimento(dados_curvaF, c_infinitoF, kF, tzeroF, real_cont_fwB, tempoB, medida, mainNameAB, grupoB)
-
+    AIC_bertalanffyB <<- AIC_bertalanffy
+    AIC_gompertzB <<- AIC_gompertz
+    AIC_logisticaB <<- AIC_logistica
     #remove variáveis por segurança
     removedor(2)
+    rm(AIC_bertalanffy, envir = .GlobalEnv)
+    rm(AIC_gompertz, envir = .GlobalEnv)
+    rm(AIC_logistica, envir = .GlobalEnv)
   }
 
   ######################################## AJUSTE DE MÍNIMO QUADRADO LEVENBERG-MARQUARDT
@@ -660,8 +669,15 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       c_infinito_ajustadoLM <<- c_infinito_ajustadoL
       k_ajustadoLM <<- k_ajustadoL
       tzero_ajustadoLM <<- tzero_ajustadoL
+
+    AIC_bertalanffyLMA <<- AIC_bertalanffyLM
+    AIC_gompertzLMA <<- AIC_gompertzLM
+    AIC_logisticaLMA <<- AIC_logisticaLM
       removedor(3)
       removedor(4)
+    rm(AIC_bertalanffyLMA, envir = .GlobalEnv)
+    rm(AIC_gompertzLMA, envir = .GlobalEnv)
+    rm(AIC_logisticaLMA, envir = .GlobalEnv)
 
     cat("\n[GRUPO: B]\n")
 
@@ -682,8 +698,15 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     c_infinito_ajustadoLF <<- c_infinito_ajustadoL
     k_ajustadoLF <<- k_ajustadoL
     tzero_ajustadoLF <<- tzero_ajustadoL
+
+    AIC_bertalanffyLMB <<- AIC_bertalanffyLM
+    AIC_gompertzLMB <<- AIC_gompertzLM
+    AIC_logisticaLMB <<- AIC_logisticaLM
     removedor(3)
     removedor(4)
+    rm(AIC_bertalanffyLMB, envir = .GlobalEnv)
+    rm(AIC_gompertzLMB, envir = .GlobalEnv)
+    rm(AIC_logisticaLMB, envir = .GlobalEnv)
   }
 
   ####################################### MORTALIDADE ####
@@ -1089,11 +1112,42 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   }
 }
 ############################## RESULTADOS E FIM DE ALGORITMO ####
+  #### AIC ####
+  if(is.null(grupo)){
+    aic_values <- c(Bertalanffy = AIC_bertalanffy, 
+                    Gompertz = AIC_gompertz, 
+                    Logistico = AIC_logistico,
+                    Bertalanffy_Fitted = AIC_bertalanffyLM, 
+                    Gompertz_Fitted = AIC_gompertzLM, 
+                    Logistico_Fitted = AIC_logisticoLM)
+    sorted_aic <- sort(aic_values)
+    removedor(31)
+  }else{
+    aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA, 
+                    Gompertz_A  = AIC_gompertzA, 
+                    Logistico_A  = AIC_logisticoA,
+                    Bertalanffy_B = AIC_bertalanffB, 
+                    Gompertz_B = AIC_gompertzB, 
+                    Logistico_B = AIC_logisticoB,
+                    Bertalanffy_Fitted_A = AIC_bertalanffyLMA, 
+                    Gompertz_Fitted_A = AIC_gompertzLMA, 
+                    Logistico_Fitted_A = AIC_logisticoLMA,
+                    Bertalanffy_Fitted_B = AIC_bertalanffyLMB, 
+                    Gompertz_Fitted_B = AIC_gompertzLMB, 
+                    Logistico_Fitted_B = AIC_logisticoLMB)
+    sorted_aic <<- sort(aic_values)
+    removedor(32)
+  }
+    
   if(idioma==1){
     cat("\n\n############################## Resumo dos resultados #############################\n\n")
+    cat("\nTeste AIC:\n")
+    print(sorted_aic)
     FIMalgoritmo <<- "############################## Fim do código ##############################"
   }else if(idioma==2){
     cat("\n\n############################## Summary of the results #############################\n\n")
+    cat("\nAIC Test:\n")
+    print(sorted_aic)
     FIMalgoritmo <<- "############################## End of code ##############################"
   }
   if(is.null(grupo)){
