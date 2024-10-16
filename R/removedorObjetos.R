@@ -85,6 +85,32 @@ removedor <- function(variaveis){
     rm(tzero_ajustadoL, envir = .GlobalEnv)
     return()
   }
+####################### LEVENBERG-MARQUARDT (31)
+  if(variaveis == 31){
+    rm(AIC_bertalanffy, envir = .GlobalEnv)
+    rm(AIC_gompertz, envir = .GlobalEnv)
+    rm(AIC_logistica, envir = .GlobalEnv)
+    rm(AIC_bertalanffyLM, envir = .GlobalEnv)
+    rm(AIC_gompertzLM, envir = .GlobalEnv)
+    rm(AIC_logisticaLM, envir = .GlobalEnv)
+    return()
+  }
+####################### LEVENBERG-MARQUARDT (32)
+  if(variaveis == 32){
+    rm(AIC_bertalanffyA, envir = .GlobalEnv)
+    rm(AIC_gompertzA, envir = .GlobalEnv)
+    rm(AIC_logisticaA, envir = .GlobalEnv)
+    rm(AIC_bertalanffyB, envir = .GlobalEnv)
+    rm(AIC_gompertzB, envir = .GlobalEnv)
+    rm(AIC_logisticaB, envir = .GlobalEnv)
+    rm(AIC_bertalanffyLMB, envir = .GlobalEnv)
+    rm(AIC_gompertzLMB, envir = .GlobalEnv)
+    rm(AIC_logisticaLMB, envir = .GlobalEnv)
+    rm(AIC_bertalanffyLMA, envir = .GlobalEnv)
+    rm(AIC_gompertzLMA, envir = .GlobalEnv)
+    rm(AIC_logisticaLMA, envir = .GlobalEnv)
+    return()
+  }
 ####################### IC (4)
   if(variaveis == 4){
     rm(sumarioB, envir = .GlobalEnv)
