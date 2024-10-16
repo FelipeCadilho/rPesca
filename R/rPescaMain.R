@@ -675,9 +675,9 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     AIC_logisticaLMA <<- AIC_logisticaLM
       removedor(3)
       removedor(4)
-    rm(AIC_bertalanffyLMA, envir = .GlobalEnv)
-    rm(AIC_gompertzLMA, envir = .GlobalEnv)
-    rm(AIC_logisticaLMA, envir = .GlobalEnv)
+    rm(AIC_bertalanffyLM, envir = .GlobalEnv)
+    rm(AIC_gompertzLM, envir = .GlobalEnv)
+    rm(AIC_logisticaLM, envir = .GlobalEnv)
 
     cat("\n[GRUPO: B]\n")
 
@@ -704,9 +704,9 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     AIC_logisticaLMB <<- AIC_logisticaLM
     removedor(3)
     removedor(4)
-    rm(AIC_bertalanffyLMB, envir = .GlobalEnv)
-    rm(AIC_gompertzLMB, envir = .GlobalEnv)
-    rm(AIC_logisticaLMB, envir = .GlobalEnv)
+    rm(AIC_bertalanffyLM, envir = .GlobalEnv)
+    rm(AIC_gompertzLM, envir = .GlobalEnv)
+    rm(AIC_logisticaLM, envir = .GlobalEnv)
   }
 
   ####################################### MORTALIDADE ####
@@ -1116,25 +1116,25 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   if(is.null(grupo)){
     aic_values <- c(Bertalanffy = AIC_bertalanffy, 
                     Gompertz = AIC_gompertz, 
-                    Logistico = AIC_logistico,
+                    Logistica = AIC_logistica,
                     Bertalanffy_Fitted = AIC_bertalanffyLM, 
                     Gompertz_Fitted = AIC_gompertzLM, 
-                    Logistico_Fitted = AIC_logisticoLM)
+                    Logistica_Fitted = AIC_logisticaLM)
     sorted_aic <- sort(aic_values)
     removedor(31)
   }else{
     aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA, 
                     Gompertz_A  = AIC_gompertzA, 
-                    Logistico_A  = AIC_logisticoA,
+                    Logistica_A  = AIC_logisticaA,
                     Bertalanffy_B = AIC_bertalanffB, 
                     Gompertz_B = AIC_gompertzB, 
-                    Logistico_B = AIC_logisticoB,
+                    Logistica_B = AIC_logisticaB,
                     Bertalanffy_Fitted_A = AIC_bertalanffyLMA, 
                     Gompertz_Fitted_A = AIC_gompertzLMA, 
-                    Logistico_Fitted_A = AIC_logisticoLMA,
+                    Logistica_Fitted_A = AIC_logisticaLMA,
                     Bertalanffy_Fitted_B = AIC_bertalanffyLMB, 
                     Gompertz_Fitted_B = AIC_gompertzLMB, 
-                    Logistico_Fitted_B = AIC_logisticoLMB)
+                    Logistica_Fitted_B = AIC_logisticaLMB)
     sorted_aic <<- sort(aic_values)
     removedor(32)
   }
