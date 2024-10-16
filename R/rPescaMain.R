@@ -724,10 +724,10 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(respostaFord == "") respostaFord = "N"
         if(respostaFord=="S"||respostaFord=="Y"){  
           if(is.null(grupo)){
-            mortalidadeIdadeford <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeford <<- mortalidadeZ(c_infinito, k, tzero, dados[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }else{
-            mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
-            mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
+            mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
         }
         #### BERTALANFFY ####
@@ -740,10 +740,10 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(respostaFord == "") respostaFord = "N"
         if(respostaFord=="S"||respostaFord=="Y"){  
           if(is.null(grupo)){
-            mortalidadeIdadeVB <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeVB <<- mortalidadeZ(c_infinito, k, tzero, dados[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }else{
-            mortalidadeIdadeAVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
-            mortalidadeIdadeBVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeAVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
+            mortalidadeIdadeBVB <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
         }
         #### GOMPERTZ ####
@@ -756,10 +756,10 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(respostaFord == "") respostaFord = "N"
         if(respostaFord=="S"||respostaFord=="Y"){  
           if(is.null(grupo)){
-            mortalidadeIdadeGP <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeGP <<- mortalidadeZ(c_infinito, k, tzero, dados[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }else{
-            mortalidadeIdadeAGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
-            mortalidadeIdadeBGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeAGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
+            mortalidadeIdadeBGP <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
         }
         #### LOGISTICA ####
@@ -772,20 +772,20 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         if(respostaFord == "") respostaFord = "N"
         if(respostaFord=="S"||respostaFord=="Y"){  
           if(is.null(grupo)){
-            mortalidadeIdadeLG <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeLG <<- mortalidadeZ(c_infinito, k, tzero, dados[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }else{
-            mortalidadeIdadeALG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
-            mortalidadeIdadeBLG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+            mortalidadeIdadeALG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
+            mortalidadeIdadeBLG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
           }
         }
      }else{
         #### FORD-WALFORD PADRÃO ####        
        
         if(is.null(grupo)){
-          mortalidadeIdadeford <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+          mortalidadeIdadeford <<- mortalidadeZ(c_infinito, k, tzero, dados[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
         }else{
-          mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
-          mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+          mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
+          mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,1], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, adhoc=2)
         }
       }
    }
