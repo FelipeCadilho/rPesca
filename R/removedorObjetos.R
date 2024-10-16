@@ -200,7 +200,15 @@ removedor <- function(variaveis){
     rm(r2_z, envir = .GlobalEnv)
     return()
   }
-
+####################### MORTALIDADE TOTAL IDADES (52)
+  if(variaveis == 52){
+    rm(Z, envir = .GlobalEnv)
+    rm(tAspas, envir = .GlobalEnv)
+    rm(phi, envir = .GlobalEnv)
+    rm(M, envir = .GlobalEnv)
+    return()
+  }
+  
 ####################### REMOVEDOR DE OUTLIERS (6)
   if(variaveis == 6){
     rm(filtro, envir = .GlobalEnv)
