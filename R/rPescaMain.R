@@ -1096,7 +1096,21 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     cat("\n\n############################## Summary of the results #############################\n\n")
     FIMalgoritmo <<- "############################## End of code ##############################"
   }
-  
+  if(is.null(grupo)){
+    ford  <<- round(ford,2)
+    cinfktzeroB <<- round(cinfktzeroB,2)
+    cinfktzeroG <<- round(cinfktzeroG,2)
+    cinfktzeroL <<- round(cinfktzeroL,2)
+  }else{
+    fordA <<- round(fordA,2)
+    fordB <<- round(fordB,2)
+    cinfktzeroBM <<- round(cinfktzeroBM,2)
+    cinfktzeroGM <<- round(cinfktzeroGM,2)
+    cinfktzeroLM <<- round(cinfktzeroLM,2)
+    cinfktzeroBF <<- round(cinfktzeroBF,2)
+    cinfktzeroGF <<- round(cinfktzeroGF,2)
+    cinfktzeroLF <<- round(cinfktzeroLF,2)
+  }
   if(is.null(grupo)){
     #Sem grupo
     removedor(7)
