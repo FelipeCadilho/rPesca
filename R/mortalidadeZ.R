@@ -28,7 +28,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
   if(adhoc == 2){    
     #chama pacote de controle de dados
     library("dplyr")
-    dadus <<- data.frame(dados)
+    dadus <<- data.frame(idade=dados)
     tabelaMortalidade <<- dadus %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
     idade_media <<- sum(tabelaMortalidade$ind)/sum(tabelaMortalidade$somatorio)
     if(idioma == 1 ){
