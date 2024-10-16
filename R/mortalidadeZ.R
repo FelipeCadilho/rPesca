@@ -106,8 +106,8 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados_mortalidade, n_tamanho_inic
       labX="t(years)" 
       labY="Ln(N/dt)"
     }
-    n_tamanho_inicial <<- nrow(dados[,1])
-    n_tamanho_final <<- nrow(dados[,1])
+    n_tamanho_inicial <<- nrow(dados_mortalidade[,1])
+    n_tamanho_final <<- nrow(dados_mortalidade[,1])
     c_infinito <<- c_infinito
     k <<- k
     tzero <<- tzero
