@@ -202,9 +202,9 @@ crescimento <- function(dados, c_inf, B, tzer, contador, tempoB, medida, mainNam
   residuos$Logistica_Residuos <- dados_curva$ct - dados_curva$logistica
       
   # Calcular a soma dos quadrados dos resíduos (SSR)
-  SSR_bertalanffy <- sum(dados_curva$Bertalanffy_Residuos^2)
-  SSR_gompertz <- sum(dados_curva$Gompertz_Residuos^2)
-  SSR_logistica <- sum(dados_curva$Logistica_Residuos^2)
+  SSR_bertalanffy <- sum(residuos$Bertalanffy_Residuos^2)
+  SSR_gompertz <- sum(residuos$Gompertz_Residuos^2)
+  SSR_logistica <- sum(residuos$Logistica_Residuos^2)
 
   # Número de parâmetros para cada modelo
   num_parametros <- 3  # Para Bertalanffy, Gompertz e Logística
