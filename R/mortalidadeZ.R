@@ -529,7 +529,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
       morte[9] <<- round(0.5*M,2)
       #Flimit Patterson (1992)
       morte[10] <<- round(2/3*M,2)
-      names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit)
+      names(morte) <<- c("c_infinito","k","tzero","ϕ","M","Z","F","E","Fopt","Flimit")
     }else{
       morte <<- data.frame(Z=c(0))
       morte <<- round(Z,2)
