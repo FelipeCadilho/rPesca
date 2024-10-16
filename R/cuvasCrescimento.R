@@ -201,7 +201,7 @@ crescimento <- function(dados, c_inf, B, tzer, contador, tempoB, medida, mainNam
   residuos$Bertalanffy_Residuos <- dados_curva$ct - dados_curva$bertalanffy
   residuos$Gompertz_Residuos <- dados_curva$ct - dados_curva$gompertz
   residuos$Logistica_Residuos <- dados_curva$ct - dados_curva$logistica
-  names(residuos) <- ("idade", "ct", "Bertalanffy_Residuos", "Gompertz_Residuos", "Logistica_Residuos")
+  names(residuos) <- c("idade","ct","Bertalanffy_Residuos","Gompertz_Residuos","Logistica_Residuos")
       
   # Calcular a soma dos quadrados dos resíduos (SSR)
   SSR_bertalanffy <- sum(dados_curva$Bertalanffy_Residuos^2)
