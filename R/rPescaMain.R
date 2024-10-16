@@ -918,17 +918,17 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #### ESCOLHA PADRÃO ####
       if(is.null(grupo)){
         #Sem grupo
-        ford <<- mortalidadeZ(c_infinito, k, tzero, dados, real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
+        ford <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY)
   
       }else{
         #grupo A
         cat("\n[GRUPO: A]\n")
-        fordA <<- mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA, real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
+        fordA <<- mortalidadeZ(c_infinitoM, kM, tzeroM, dadosGrupoA[,2], real_cont_fwA, idioma, modeloAA, mainNameEA, labelEX, labelEY, grupoA, label2)
         removedor(5)
         
         #grupo B
         cat("\n[GRUPO: B]\n")
-        fordB <<- mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB, real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
+        fordB <<- mortalidadeZ(c_infinitoF, kF, tzeroF, dadosGrupoB[,2], real_cont_fwB, idioma, modeloAA, mainNameEB, labelEX, labelEY, grupoB, label1)
         removedor(5)
       }
     }
