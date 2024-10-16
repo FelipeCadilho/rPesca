@@ -1096,37 +1096,37 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #}
       #### FORD ####
         cat("\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
-        if(!is.null(mortalidadeIdadeford$Z)){
+        if(length(mortalidadeIdadeford)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
         }
-        if(!is.null(ford$Z)){
+        if(length(ford)>5){
           cat("\nZ baseado em comprimento:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nBertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
-        if(!is.null(mortalidadeIdadeVB$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
         }
-        if(!is.null(cinfktzeroB$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
-        if(!is.null(mortalidadeIdadeGP$Z)){
+        if(length()>5){
             cat("\nZ baseado em idade:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
         }
-        if(!is.null(cinfktzeroG$Z)){
+        if(length()>5){
         cat("\nZ baseado em comprimento:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nLogística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
-        if(!is.null(mortalidadeIdadeLG$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
         }
-        if(!is.null(cinfktzeroL$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F,"E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit)
         }
       return()
@@ -1140,37 +1140,37 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
       #}
       #### FORD ####
         cat("\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
-        if(!is.null(mortalidadeIdadeford$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeford$Z,"ϕ:",mortalidadeIdadeford$ϕ,"M:",mortalidadeIdadeford$M,"F:",mortalidadeIdadeford$F,"E:",mortalidadeIdadeford$E,"Fopt:",mortalidadeIdadeford$Fopt,"Flimit:",mortalidadeIdadeford$Flimit)
         }
-        if(!is.null(ford$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",ford$Z,"ϕ:",ford$ϕ,"M:",ford$M,"F:",ford$F,"E:",ford$E,"Fopt:",ford$Fopt,"Flimit:",ford$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]])
-        if(!is.null(mortalidadeIdadeVB$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit)
         }
-        if(!is.null(cinfktzeroB$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroB$Z,"ϕ:",cinfktzeroB$ϕ,"M:",cinfktzeroB$M,"F:",cinfktzeroB$F,"E:",cinfktzeroB$E,"Fopt:",cinfktzeroB$Fopt,"Flimit:",cinfktzeroB$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGompertz\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]])
-        if(!is.null(mortalidadeIdadeGP$Z)){
+        if(length()>5){
             cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit)
         }
-        if(!is.null(cinfktzeroG$Z)){
+        if(length()>5){
         cat("\nZ Length-based:",cinfktzeroG$Z,"ϕ:",cinfktzeroG$ϕ,"M:",cinfktzeroG$M,"F:",cinfktzeroG$F,"E:",cinfktzeroG$E,"Fopt:",cinfktzeroG$Fopt,"Flimit:",cinfktzeroG$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nLogistic\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]])
-        if(!is.null(mortalidadeIdadeLG$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit)
         }
-        if(!is.null(cinfktzeroL$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroL$Z,"ϕ:",cinfktzeroL$ϕ,"M:",cinfktzeroL$M,"F:",cinfktzeroL$F, "E:",cinfktzeroL$E,"Fopt:",cinfktzeroL$Fopt,"Flimit:",cinfktzeroL$Flimit)
         }
     }
@@ -1193,74 +1193,74 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         #GRUPO A
         #### FORD ####
         cat("\nGrupo = A\nFord-Walford\nCinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
-        if(!is.null(mortalidadeIdadeAford$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
         }
-        if(!is.null(fordA$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
-        if(!is.null(mortalidadeIdadeAVB$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
         }
-        if(!is.null(cinfktzeroBM$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
-        if(!is.null(mortalidadeIdadeAGP$Z)){
+        if(length()>5){
             cat("\nZ baseado em idade:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
         }
-        if(!is.null(cinfktzeroGM$Z)){
+        if(length()>5){
         cat("\nZ baseado em comprimento:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
-        if(!is.null(mortalidadeIdadeALG$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
         }
-        if(!is.null(cinfktzeroLM$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:",cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit)
         }
         
         #GRUPO B
         #### FORD ####
         cat("\nGrupo = B\nFord-Walford\nCinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
-        if(!is.null(mortalidadeIdadeBford$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
         }
-        if(!is.null(fordB$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
-        if(!is.null(mortalidadeIdadeBVB$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
         }
-        if(!is.null(cinfktzeroBF$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
-        if(!is.null(mortalidadeIdadeBGP$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
         }
-        if(!is.null(cinfktzeroGF$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
-        if(!is.null(mortalidadeIdadeBLG$Z)){
+        if(length()>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
         }
-        if(!is.null(cinfktzeroLF$Z)){
+        if(length()>5){
           cat("\nZ baseado em comprimento:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit)
         }        
         return()
@@ -1279,74 +1279,74 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         #GRUPO A
         #### FORD ####
         cat("\nGroup = A\nFord-Walford\nLinf:",fordA[[1]],"k:",fordA[[2]],"t0:",fordA[[3]])
-        if(!is.null(mortalidadeIdadeAford$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeAford$Z,"ϕ:",mortalidadeIdadeAford$ϕ,"M:",mortalidadeIdadeAford$M,"F:",mortalidadeIdadeAford$F,"E:",mortalidadeIdadeAford$E,"Fopt:",mortalidadeIdadeAford$Fopt,"Flimit:",mortalidadeIdadeAford$Flimit)
         }
-        if(!is.null(fordA$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",fordA$Z,"ϕ:",fordA$ϕ,"M:",fordA$M,"F:",fordA$F,"E:",fordA$E,"Fopt:",fordA$Fopt,"Flimit:",fordA$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]])
-        if(!is.null(mortalidadeIdadeAVB$Z)){
+        if(!is.null(mortalidadeIdadeAVB[[6]])){
           cat("\nZ Age-based:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit)
         }
-        if(!is.null(cinfktzeroBM$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroBM$Z,"ϕ:",cinfktzeroBM$ϕ,"M:",cinfktzeroBM$M,"F:",cinfktzeroBM$F,"E:",cinfktzeroBM$E,"Fopt:",cinfktzeroBM$Fopt,"Flimit:",cinfktzeroBM$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]])
-        if(!is.null(mortalidadeIdadeAGP$Z)){
+        if(length()>5){
             cat("\nZ Age-based:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit)
         }
-        if(!is.null(cinfktzeroGM$Z)){
+        if(length()>5){
         cat("\nZ Length-based:",cinfktzeroGM$Z,"ϕ:",cinfktzeroGM$ϕ,"M:",cinfktzeroGM$M,"F:",cinfktzeroGM$F,"E:",cinfktzeroGM$E,"Fopt:",cinfktzeroGM$Fopt,"Flimit:",cinfktzeroGM$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]])
-        if(!is.null(mortalidadeIdadeALG$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit)
         }
-        if(!is.null(cinfktzeroLM$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroLM$Z,"ϕ:",cinfktzeroLM$ϕ,"M:", cinfktzeroLM$M,"F:",cinfktzeroLM$F,"E:",cinfktzeroLM$E,"Fopt:",cinfktzeroLM$Fopt,"Flimit:",cinfktzeroLM$Flimit)
         }
         
         #GRUPO B
         #### FORD ####
         cat("\nGroup = B\nFord-Walford\nLinf:",ford[[1]],"k:",ford[[2]],"t0:",ford[[3]])
-        if(!is.null(mortalidadeIdadeBford$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeBford$Z,"ϕ:",mortalidadeIdadeBford$ϕ,"M:",mortalidadeIdadeBford$M,"F:",mortalidadeIdadeBford$F,"E:",mortalidadeIdadeBford$E,"Fopt:",mortalidadeIdadeBford$Fopt,"Flimit:",mortalidadeIdadeBford$Flimit)
         }
-        if(!is.null(fordB$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",fordB$Z,"ϕ:",fordB$ϕ,"M:",fordB$M,"F:",fordB$F,"E:",fordB$E,"Fopt:",fordB$Fopt,"Flimit:",fordB$Flimit)
         }
         
         #### BERTALANFFY ####
         cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]])
-        if(!is.null(mortalidadeIdadeBVB$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit)
         }
-        if(!is.null(cinfktzeroBF$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroBF$Z,"ϕ:",cinfktzeroBF$ϕ,"M:",cinfktzeroBF$M,"F:",cinfktzeroBF$F,"E:",cinfktzeroBF$E,"Fopt:",cinfktzeroBF$Fopt,"Flimit:",cinfktzeroBF$Flimit)
         }
       
         #### GOMPERTZ ####
         cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]])
-        if(!is.null(mortalidadeIdadeBGP$Z)){
+        if(length()>5){
             cat("\nZ Age-based:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit)
         }
-        if(!is.null(cinfktzeroGF$Z)){
+        if(length()>5){
         cat("\nZ Length-based:",cinfktzeroGF$Z,"ϕ:",cinfktzeroGF$ϕ,"M:",cinfktzeroGF$M,"F:",cinfktzeroGF$F,"E:",cinfktzeroGF$E,"Fopt:",cinfktzeroGF$Fopt,"Flimit:",cinfktzeroGF$Flimit)
         }
         
         #### LOGISTICA ####
         cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]])
-        if(!is.null(mortalidadeIdadeBLG$Z)){
+        if(length()>5){
           cat("\nZ Age-based:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit)
         }
-        if(!is.null(cinfktzeroLF$Z)){
+        if(length()>5){
           cat("\nZ Length-based:",cinfktzeroLF$Z,"ϕ:",cinfktzeroLF$ϕ,"M:",cinfktzeroLF$M,"F:",cinfktzeroLF$F,"E:",cinfktzeroLF$E,"Fopt:",cinfktzeroLF$Fopt,"Flimit:",cinfktzeroLF$Flimit)
         }        
         return()        
