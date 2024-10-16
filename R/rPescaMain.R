@@ -692,7 +692,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   }else if(idioma == 2){
     cat("\nDo you wish to calculate the total mortality (Z):[Enter the option]\n(1): Based on AGE data\n(2): Based on LENGTH data\n(3): Calculate both\n")
   }
-  repostaMortalidadeCalc <<- scan(n=1)
+  respostaMortalidadeCalc <<- scan(n=1)
   #condição de exceção
   if(respostaMortalidadeCalc<1||respostaMortalidadeCalc>3) respostaMortalidadeCalc <<- 3
     
