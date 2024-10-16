@@ -194,5 +194,26 @@ crescimento <- function(dados, c_inf, B, tzer, contador, tempoB, medida, mainNam
       graficoN(curva_x, curva_y, NULL, NULL, curvayl, tempoB, medida, mainNameA)
                 }
 
+  #teste AIC - AKAIKE 
+  residuos <- data.frame(idade = c(0), ct = c(0), Bertalanffy_Residuos = c(0), Gompertz_Residuos = c(0), Logistica_Residuos = c(0))
+  residuos$idade <- dados_curva$idade 
+  residuos$ct <- dados_curva$ct 
+  residuos$Bertalanffy_Residuos <- dados_curva$ct - dados_curva$bertalanffy
+  residuos$Gompertz_Residuos <- dados_curva$ct - dados_curva$gompertz
+  residuos$Logistica_Residuos <- dados_curva$ct - dados_curva$logistica
+      
+  # Calcular a soma dos quadrados dos resíduos (SSR)
+  SSR_bertalanffy <- sum(dados_curva$Bertalanffy_Residuos^2)
+  SSR_gompertz <- sum(dados_curva$Gompertz_Residuos^2)
+  SSR_logistica <- sum(dados_curva$Logistica_Residuos^2)
+
+  # Número de parâmetros para cada modelo
+  num_parametros <- 3  # Para Bertalanffy, Gompertz e Logística
+
+  # Calcular o AIC
+  AIC_bertalanffy <<- length(dados_curva$idade) * log(SSR_bertalanffy / length(dados_curva$idade)) + 2 * num_parametros
+  AIC_gompertz <<- length(dados_curva$idade) * log(SSR_gompertz / length(dados_curva$idade)) + 2 * num_parametros
+  AIC_logistica <<- length(dados_curva$idade) * log(SSR_logistica / length(dados_curva$idade)) + 2 * num_parametros
+  
   return()
 }
