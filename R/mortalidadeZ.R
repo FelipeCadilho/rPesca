@@ -30,6 +30,7 @@ mortalidadeZ <- function(c_infinito, k, tzero, dados, n_tamanho_inicial=NULL, id
     library("dplyr")
     dadus <<- data.frame(idade=dados)
     tabelaMortalidade <<- dadus %>% group_by(idade) %>% summarise(ind = n(), somatorio = idade * n()) %>% unique()
+    rm(dadus, envir = .GlobalEnv)
     idade_media <<- sum(tabelaMortalidade$ind)/sum(tabelaMortalidade$somatorio)
     if(idioma == 1 ){
       cat("\nInforme a idade a partir da qual todos os peixes dessa idade ou\nmais velhos são totalmente explorados:\n")
