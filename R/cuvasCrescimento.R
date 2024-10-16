@@ -195,12 +195,13 @@ crescimento <- function(dados, c_inf, B, tzer, contador, tempoB, medida, mainNam
                 }
 
   #teste AIC - AKAIKE 
-  residuos <- data.frame(idade = c(0), ct = c(0), Bertalanffy_Residuos = c(0), Gompertz_Residuos = c(0), Logistica_Residuos = c(0))
+  residuos <- data.frame()      
   residuos$idade <- dados_curva$idade 
   residuos$ct <- dados_curva$ct 
   residuos$Bertalanffy_Residuos <- dados_curva$ct - dados_curva$bertalanffy
   residuos$Gompertz_Residuos <- dados_curva$ct - dados_curva$gompertz
   residuos$Logistica_Residuos <- dados_curva$ct - dados_curva$logistica
+  names(residuos) <- ("idade", "ct", "Bertalanffy_Residuos", "Gompertz_Residuos", "Logistica_Residuos")
       
   # Calcular a soma dos quadrados dos resíduos (SSR)
   SSR_bertalanffy <- sum(dados_curva$Bertalanffy_Residuos^2)
