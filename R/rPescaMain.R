@@ -778,7 +778,16 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
             mortalidadeIdadeBLG <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
           }
         }
-     }
+     }else{
+        #### FORD-WALFORD PADRÃO ####        
+       
+        if(is.null(grupo)){
+          mortalidadeIdadeford <<- mortalidadeZ(c_infinito, k, tzero, dados[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+        }else{
+          mortalidadeIdadeAford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoA[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+          mortalidadeIdadeBford <<- mortalidadeZ(c_infinito, k, tzero, dadosGrupoB[,2], real_cont_fw, idioma, modeloAA, mainNameE, labelEX, labelEY, 2)
+        }
+      }
    }
    if(respostaMortalidadeCalc==2 || respostaMortalidadeCalc==3){ 
  
