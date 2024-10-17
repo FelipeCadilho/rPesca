@@ -1132,53 +1132,85 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
                       Logistica_Fitted = AIC_logisticaLM + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1))
       akaike <- "AICc"
     }
-    sorted_aic <- sort(aic_values)
+    # Calcular o menor AIC
+    min_aic <- min(aic_values)
+    
+    # Calcular os ΔAIC para cada modelo
+    delta_aic <- aic_values - min_aic
+    
+    # Calcular os weights de AIC
+    aic_weights <- exp(-0.5 * delta_aic) / sum(exp(-0.5 * delta_aic))
+    
+    # Exibir os resultados em um data frame
+    results <<- data.frame(Model = names(aic_values),Values = aic_values,Delta_AIC = delta_aic,AIC_Weight = aic_weights)    
     removedor(31)
   }else{
     if((length(meus_dados2$idade)/3)>=40){
-      aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA, 
-                      Gompertz_A  = AIC_gompertzA, 
-                      Logistica_A  = AIC_logisticaA,
-                      Bertalanffy_B = AIC_bertalanffyB, 
-                      Gompertz_B = AIC_gompertzB, 
-                      Logistica_B = AIC_logisticaB,
-                      Bertalanffy_Fitted_A = AIC_bertalanffyLMA, 
-                      Gompertz_Fitted_A = AIC_gompertzLMA, 
-                      Logistica_Fitted_A = AIC_logisticaLMA,
-                      Bertalanffy_Fitted_B = AIC_bertalanffyLMB, 
-                      Gompertz_Fitted_B = AIC_gompertzLMB, 
-                      Logistica_Fitted_B = AIC_logisticaLMB)
+      aic_valuesA <<- c(Bertalanffy_A = AIC_bertalanffyA,Gompertz_A  = AIC_gompertzA,Logistica_A  = AIC_logisticaA,
+                       Bertalanffy_Fitted_A = AIC_bertalanffyLMA,Gompertz_Fitted_A = AIC_gompertzLMA,Logistica_Fitted_A = AIC_logisticaLMA)
+                       
+      aic_valuesB <<- c(Bertalanffy_B = AIC_bertalanffyB,Gompertz_B = AIC_gompertzB,Logistica_B = AIC_logisticaB,                      
+                      Bertalanffy_Fitted_B = AIC_bertalanffyLMB,Gompertz_Fitted_B = AIC_gompertzLMB,Logistica_Fitted_B = AIC_logisticaLMB)
       akaike <- "AIC"
     }else{
       #AICc
-      aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
+      aic_valuesA <<- c(Bertalanffy_A = AIC_bertalanffyA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
                         Gompertz_A = AIC_gompertzA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
-                        Logistica_A = AIC_logisticaA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),                      
-                        Bertalanffy_B = AIC_bertalanffyB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
-                        Gompertz_B = AIC_gompertzB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
-                        Logistica_B = AIC_logisticaB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),                      
+                        Logistica_A = AIC_logisticaA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),   
                         Bertalanffy_Fitted_A = AIC_bertalanffyLMA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
                         Gompertz_Fitted_A = AIC_gompertzLMA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
-                        Logistica_Fitted_A = AIC_logisticaLMA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),                      
+                        Logistica_Fitted_A = AIC_logisticaLMA + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1))
+      
+      aic_valuesB <<- c(Bertalanffy_B = AIC_bertalanffyB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
+                        Gompertz_B = AIC_gompertzB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
+                        Logistica_B = AIC_logisticaB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),  
                         Bertalanffy_Fitted_B = AIC_bertalanffyLMB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
                         Gompertz_Fitted_B = AIC_gompertzLMB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1),
                         Logistica_Fitted_B = AIC_logisticaLMB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1))
       akaike <- "AICc"
     }
-   
-    sorted_aic <<- sort(aic_values)
+    
+    # Calcular o menor AIC
+    min_aicA <- min(aic_valuesA)
+    min_aicB <- min(aic_valuesB)
+    
+    # Calcular os ΔAIC para cada modelo
+    delta_aicA <- aic_valuesA - min_aicA
+    delta_aicB <- aic_valuesB - min_aicB
+    
+    # Calcular os weights de AIC
+    aic_weightsA <- exp(-0.5 * delta_aicA) / sum(exp(-0.5 * delta_aicA))
+    aic_weightsB <- exp(-0.5 * delta_aicB) / sum(exp(-0.5 * delta_aicB))
+    
+    # Exibir os resultados em um data frame
+    resultsA <<- data.frame(Model = names(aic_valuesA),Values = aic_valuesA,Delta_AIC = delta_aicA, AIC_Weight = aic_weightsA)    
+    resultsB <<- data.frame(Model = names(aic_valuesB),Values = aic_valuesB,Delta_AIC = delta_aicB,AIC_Weight = aic_weightsB)    
     removedor(32)
   }
     
   if(idioma==1){
     cat("\n\n############################## Resumo dos resultados #############################\n\n")
     cat("\nTeste",akaike,":\n")
-    print(sorted_aic)
+    if(is.null(grupo){
+      print(results)
+    }else{
+      cat("\nGrupo A\n")
+      print(resultsA)
+      cat("\nGrupo B\n")
+      print(resultsB)
+    }
     FIMalgoritmo <<- "############################## Fim do código ##############################"
   }else if(idioma==2){
     cat("\n\n############################## Summary of the results #############################\n\n")
     cat("\n",akaike,"Test:\n")
-    print(sorted_aic)
+    if(is.null(grupo){
+      print(results)
+    }else{
+      cat("\nGroup A\n")
+      print(resultsA)
+      cat("\nGroup B\n")
+      print(resultsB)
+    }
     FIMalgoritmo <<- "############################## End of code ##############################"
   }
   if(is.null(grupo)){
