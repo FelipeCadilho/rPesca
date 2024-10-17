@@ -1142,7 +1142,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     aic_weights <- exp(-0.5 * delta_aic) / sum(exp(-0.5 * delta_aic))
     
     # Exibir os resultados em um data frame
-    results <<- data.frame(Model = names(aic_values),Values = aic_values,Delta_AIC = delta_aic,AIC_Weight = aic_weights)    
+    results <<- data.frame(Values = aic_values,Delta_AIC = delta_aic,AIC_Weight = aic_weights)    
     removedor(31)
   }else{
     if((length(meus_dados2$idade)/3)>=40){
@@ -1183,8 +1183,8 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
     aic_weightsB <- exp(-0.5 * delta_aicB) / sum(exp(-0.5 * delta_aicB))
     
     # Exibir os resultados em um data frame
-    resultsA <<- data.frame(Model = names(aic_valuesA),Values = aic_valuesA,Delta_AIC = delta_aicA, AIC_Weight = aic_weightsA)    
-    resultsB <<- data.frame(Model = names(aic_valuesB),Values = aic_valuesB,Delta_AIC = delta_aicB,AIC_Weight = aic_weightsB)    
+    resultsA <<- data.frame(Values = aic_valuesA,Delta_AIC = delta_aicA, AIC_Weight = aic_weightsA)    
+    resultsB <<- data.frame(Values = aic_valuesB,Delta_AIC = delta_aicB,AIC_Weight = aic_weightsB)    
     removedor(32)
   }
     
