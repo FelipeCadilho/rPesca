@@ -1113,40 +1113,72 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
 }
 ############################## RESULTADOS E FIM DE ALGORITMO ####
   #### AIC ####
+  num_parametros <- 3
   if(is.null(grupo)){
-    aic_values <- c(Bertalanffy = AIC_bertalanffy, 
-                    Gompertz = AIC_gompertz, 
-                    Logistica = AIC_logistica,
-                    Bertalanffy_Fitted = AIC_bertalanffyLM, 
-                    Gompertz_Fitted = AIC_gompertzLM, 
-                    Logistica_Fitted = AIC_logisticaLM)
+    if(length(meus_dados2$idade)/num_parametros>=40){
+      aic_values <- c(Bertalanffy = AIC_bertalanffy, 
+                      Gompertz = AIC_gompertz, 
+                      Logistica = AIC_logistica,
+                      Bertalanffy_Fitted = AIC_bertalanffyLM, 
+                      Gompertz_Fitted = AIC_gompertzLM, 
+                      Logistica_Fitted = AIC_logisticaLM)
+      akaike <- "AIC"
+    }else{
+      #AICc
+      aic_values <- c(Bertalanffy = AIC_bertalanffy + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                      Gompertz = AIC_gompertz + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                      Logistica = AIC_logistica + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),                      
+                      Bertalanffy_Fitted = AIC_bertalanffyLM + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                      Gompertz_Fitted = AIC_gompertzLM + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                      Logistica_Fitted = AIC_logisticaLM + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1))
+      akaike <- "AICc"
+    }
     sorted_aic <- sort(aic_values)
     removedor(31)
   }else{
-    aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA, 
-                    Gompertz_A  = AIC_gompertzA, 
-                    Logistica_A  = AIC_logisticaA,
-                    Bertalanffy_B = AIC_bertalanffB, 
-                    Gompertz_B = AIC_gompertzB, 
-                    Logistica_B = AIC_logisticaB,
-                    Bertalanffy_Fitted_A = AIC_bertalanffyLMA, 
-                    Gompertz_Fitted_A = AIC_gompertzLMA, 
-                    Logistica_Fitted_A = AIC_logisticaLMA,
-                    Bertalanffy_Fitted_B = AIC_bertalanffyLMB, 
-                    Gompertz_Fitted_B = AIC_gompertzLMB, 
-                    Logistica_Fitted_B = AIC_logisticaLMB)
+    if(length(meus_dados2$idade)/num_parametros>=40){
+      aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA, 
+                      Gompertz_A  = AIC_gompertzA, 
+                      Logistica_A  = AIC_logisticaA,
+                      Bertalanffy_B = AIC_bertalanffyB, 
+                      Gompertz_B = AIC_gompertzB, 
+                      Logistica_B = AIC_logisticaB,
+                      Bertalanffy_Fitted_A = AIC_bertalanffyLMA, 
+                      Gompertz_Fitted_A = AIC_gompertzLMA, 
+                      Logistica_Fitted_A = AIC_logisticaLMA,
+                      Bertalanffy_Fitted_B = AIC_bertalanffyLMB, 
+                      Gompertz_Fitted_B = AIC_gompertzLMB, 
+                      Logistica_Fitted_B = AIC_logisticaLMB)
+      akaike <- "AIC"
+    }else{
+      #AICc
+      aic_values <<- c(Bertalanffy_A = AIC_bertalanffyA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Gompertz_A = AIC_gompertzA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Logistica_A = AIC_logisticaA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),                      
+                        Bertalanffy_B = AIC_bertalanffyB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Gompertz_B = AIC_gompertzB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Logistica_B = AIC_logisticaB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),                      
+                        Bertalanffy_Fitted_A = AIC_bertalanffyLMA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Gompertz_Fitted_A = AIC_gompertzLMA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Logistica_Fitted_A = AIC_logisticaLMA + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),                      
+                        Bertalanffy_Fitted_B = AIC_bertalanffyLMB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Gompertz_Fitted_B = AIC_gompertzLMB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1),
+                        Logistica_Fitted_B = AIC_logisticaLMB + (2 * num_parametros * (num_parametros + 1)) / (n - num_parametros - 1))
+      akaike <- "AICc"
+    }
+   
     sorted_aic <<- sort(aic_values)
     removedor(32)
   }
     
   if(idioma==1){
     cat("\n\n############################## Resumo dos resultados #############################\n\n")
-    cat("\nTeste AIC:\n")
+    cat("\nTeste",akaike,":\n")
     print(sorted_aic)
     FIMalgoritmo <<- "############################## Fim do código ##############################"
   }else if(idioma==2){
     cat("\n\n############################## Summary of the results #############################\n\n")
-    cat("\nAIC Test:\n")
+    cat("\n",akaike,"Test:\n")
     print(sorted_aic)
     FIMalgoritmo <<- "############################## End of code ##############################"
   }
