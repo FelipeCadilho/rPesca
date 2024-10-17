@@ -1249,7 +1249,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
+        cat("\nParâmetros Ajustados - Equação de Bertalanffy\nCinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
         if(length(mortalidadeIdadeVB)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit,"\n")
         }
@@ -1258,7 +1258,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
+        cat("\nParâmetros Ajustados - Equação de Gompertz\nCinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
         if(length(mortalidadeIdadeGP)>5){
             cat("\nZ baseado em idade:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit,"\n")
         }
@@ -1267,7 +1267,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nLogística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
+        cat("\nParâmetros Ajustados - Equação de Logística\nCinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
         if(length(mortalidadeIdadeLG)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit,"\n")
         }
@@ -1289,7 +1289,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nBertalanffy\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
+        cat("\nFitted Parameters - Bertalanffy Equation\nLinf:",cinfktzeroB[[1]],"k:",cinfktzeroB[[2]],"t0:",cinfktzeroB[[3]],"\n")
         if(length(mortalidadeIdadeVB)>5){
           cat("\nZ Age-based:",mortalidadeIdadeVB$Z,"ϕ:",mortalidadeIdadeVB$ϕ,"M:",mortalidadeIdadeVB$M,"F:",mortalidadeIdadeVB$F,"E:",mortalidadeIdadeVB$E,"Fopt:",mortalidadeIdadeVB$Fopt,"Flimit:",mortalidadeIdadeVB$Flimit,"\n")
         }
@@ -1298,7 +1298,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGompertz\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
+        cat("\nFitted Parameters - Gompertz Equation\nLinf:",cinfktzeroG[[1]],"k:",cinfktzeroG[[2]],"t0:",cinfktzeroG[[3]],"\n")
         if(length(mortalidadeIdadeGP)>5){
             cat("\nZ Age-based:",mortalidadeIdadeGP$Z,"ϕ:",mortalidadeIdadeGP$ϕ,"M:",mortalidadeIdadeGP$M,"F:",mortalidadeIdadeGP$F,"E:",mortalidadeIdadeGP$E,"Fopt:",mortalidadeIdadeGP$Fopt,"Flimit:",mortalidadeIdadeGP$Flimit,"\n")
         }
@@ -1307,7 +1307,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nLogistic\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
+        cat("\nFitted Parameters - Logistic Equation\nLinf:",cinfktzeroL[[1]],"k:",cinfktzeroL[[2]],"t0:",cinfktzeroL[[3]],"\n")
         if(length(mortalidadeIdadeLG)>5){
           cat("\nZ Age-based:",mortalidadeIdadeLG$Z,"ϕ:",mortalidadeIdadeLG$ϕ,"M:",mortalidadeIdadeLG$M,"F:",mortalidadeIdadeLG$F,"E:",mortalidadeIdadeLG$E,"Fopt:",mortalidadeIdadeLG$Fopt,"Flimit:",mortalidadeIdadeLG$Flimit,"\n")
         }
@@ -1334,7 +1334,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = A\nBertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
+        cat("\nGrupo = A\nParâmetros Ajustados - Equação de Bertalanffy\nCinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
         if(length(mortalidadeIdadeAVB)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit,"\n")
         }
@@ -1343,7 +1343,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = A\nGompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
+        cat("\nGrupo = A\nParâmetros Ajustados - Equação de Gompertz\nCinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
         if(length(mortalidadeIdadeAGP)>5){
             cat("\nZ baseado em idade:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit,"\n")
         }
@@ -1352,7 +1352,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = A\nLogística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
+        cat("\nGrupo = A\nParâmetros Ajustados - Equação de Logística\nCinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
         if(length(mortalidadeIdadeALG)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit,"\n")
         }
@@ -1371,7 +1371,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGrupo = B\nBertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
+        cat("\nGrupo = B\nParâmetros Ajustados - Equação de Bertalanffy\nCinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
         if(length(mortalidadeIdadeBVB)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit,"\n")
         }
@@ -1380,7 +1380,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGrupo = B\nGompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
+        cat("\nGrupo = B\nParâmetros Ajustados - Equação de Gompertz\nCinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
         if(length(mortalidadeIdadeBGP)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit,"\n")
         }
@@ -1389,7 +1389,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGrupo = B\nLogística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
+        cat("\nGrupo = B\nParâmetros Ajustados - Equação de Logística\nCinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
         if(length(mortalidadeIdadeBLG)>5){
           cat("\nZ baseado em idade:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit,"\n")
         }
@@ -1412,7 +1412,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = A\nBertalanffy\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
+        cat("\nGroup = A\nFitted Parameters - Bertalanffy Equation\nLinf:",cinfktzeroBM[[1]],"k:",cinfktzeroBM[[2]],"t0:",cinfktzeroBM[[3]],"\n")
         if(length(mortalidadeIdadeAVB)>5){
           cat("\nZ Age-based:",mortalidadeIdadeAVB$Z,"ϕ:",mortalidadeIdadeAVB$ϕ,"M:",mortalidadeIdadeAVB$M,"F:",mortalidadeIdadeAVB$F,"E:",mortalidadeIdadeAVB$E,"Fopt:",mortalidadeIdadeAVB$Fopt,"Flimit:",mortalidadeIdadeAVB$Flimit,"\n")
         }
@@ -1421,7 +1421,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = A\nGompertz\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
+        cat("\nGroup = A\nFitted Parameters - Gompertz Equation\nLinf:",cinfktzeroGM[[1]],"k:",cinfktzeroGM[[2]],"t0:",cinfktzeroGM[[3]],"\n")
         if(length(mortalidadeIdadeAGP)>5){
             cat("\nZ Age-based:",mortalidadeIdadeAGP$Z,"ϕ:",mortalidadeIdadeAGP$ϕ,"M:",mortalidadeIdadeAGP$M,"F:",mortalidadeIdadeAGP$F,"E:",mortalidadeIdadeAGP$E,"Fopt:",mortalidadeIdadeAGP$Fopt,"Flimit:",mortalidadeIdadeAGP$Flimit,"\n")
         }
@@ -1430,7 +1430,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = A\nLogística\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
+        cat("\nGroup = A\nFitted Parameters - Logistic Equation\nLinf:",cinfktzeroLM[[1]],"k:",cinfktzeroLM[[2]],"t0:",cinfktzeroLM[[3]],"\n")
         if(length(mortalidadeIdadeALG)>5){
           cat("\nZ Age-based:",mortalidadeIdadeALG$Z,"ϕ:",mortalidadeIdadeALG$ϕ,"M:",mortalidadeIdadeALG$M,"F:",mortalidadeIdadeALG$F,"E:",mortalidadeIdadeALG$E,"Fopt:",mortalidadeIdadeALG$Fopt,"Flimit:",mortalidadeIdadeALG$Flimit,"\n")
         }
@@ -1449,7 +1449,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### BERTALANFFY ####
-        cat("\nGroup = B\nBertalanffy\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
+        cat("\nGroup = B\nFitted Parameters - Bertalanffy Equation\nLinf:",cinfktzeroBF[[1]],"k:",cinfktzeroBF[[2]],"t0:",cinfktzeroBF[[3]],"\n")
         if(length(mortalidadeIdadeBVB)>5){
           cat("\nZ Age-based:",mortalidadeIdadeBVB$Z,"ϕ:",mortalidadeIdadeBVB$ϕ,"M:",mortalidadeIdadeBVB$M,"F:",mortalidadeIdadeBVB$F,"E:",mortalidadeIdadeBVB$E,"Fopt:",mortalidadeIdadeBVB$Fopt,"Flimit:",mortalidadeIdadeBVB$Flimit,"\n")
         }
@@ -1458,7 +1458,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
       
         #### GOMPERTZ ####
-        cat("\nGroup = B\nGompertz\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
+        cat("\nGroup = B\nFitted Parameters - Gompertz Equation\nLinf:",cinfktzeroGF[[1]],"k:",cinfktzeroGF[[2]],"t0:",cinfktzeroGF[[3]],"\n")
         if(length(mortalidadeIdadeBGP)>5){
             cat("\nZ Age-based:",mortalidadeIdadeBGP$Z,"ϕ:",mortalidadeIdadeBGP$ϕ,"M:",mortalidadeIdadeBGP$M,"F:",mortalidadeIdadeBGP$F,"E:",mortalidadeIdadeBGP$E,"Fopt:",mortalidadeIdadeBGP$Fopt,"Flimit:",mortalidadeIdadeBGP$Flimit,"\n")
         }
@@ -1467,7 +1467,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
         }
         
         #### LOGISTICA ####
-        cat("\nGroup = B\nLogistic\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
+        cat("\nGroup = B\nFitted Parameters - Logistic Equation\nLinf:",cinfktzeroLF[[1]],"k:",cinfktzeroLF[[2]],"t0:",cinfktzeroLF[[3]],"\n")
         if(length(mortalidadeIdadeBLG)>5){
           cat("\nZ Age-based:",mortalidadeIdadeBLG$Z,"ϕ:",mortalidadeIdadeBLG$ϕ,"M:",mortalidadeIdadeBLG$M,"F:",mortalidadeIdadeBLG$F,"E:",mortalidadeIdadeBLG$E,"Fopt:",mortalidadeIdadeBLG$Fopt,"Flimit:",mortalidadeIdadeBLG$Flimit,"\n")
         }
