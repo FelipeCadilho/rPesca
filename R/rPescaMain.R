@@ -1132,14 +1132,17 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
                       Logistica_Fitted = AIC_logisticaLM + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1))
       akaike <- "AICc"
     }
+    # ordenar
+    aic_values <<- round(sort(aic_values),2)
+    
     # Calcular o menor AIC
     min_aic <- min(aic_values)
     
     # Calcular os ΔAIC para cada modelo
-    delta_aic <- aic_values - min_aic
+    delta_aic <- round(aic_values - min_aic,2)
     
     # Calcular os weights de AIC
-    aic_weights <- exp(-0.5 * delta_aic) / sum(exp(-0.5 * delta_aic))
+    aic_weights <- round(exp(-0.5 * delta_aic) / sum(exp(-0.5 * delta_aic)),2)
     
     # Exibir os resultados em um data frame
     results <<- data.frame(Values = aic_values,Delta_AIC = delta_aic,AIC_Weight = aic_weights)    
@@ -1169,18 +1172,21 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
                         Logistica_Fitted_B = AIC_logisticaLMB + (2 * 3 * (3 + 1)) / (length(meus_dados2$idade) - 3 - 1))
       akaike <- "AICc"
     }
+    # ordenar
+    aic_valuesA <<- round(sort(aic_valuesA),2)
+    aic_valuesB <<- round(sort(aic_valuesB),2)
     
     # Calcular o menor AIC
     min_aicA <- min(aic_valuesA)
     min_aicB <- min(aic_valuesB)
     
     # Calcular os ΔAIC para cada modelo
-    delta_aicA <- aic_valuesA - min_aicA
-    delta_aicB <- aic_valuesB - min_aicB
+    delta_aicA <- round(aic_valuesA - min_aicA,2)
+    delta_aicB <- round(aic_valuesB - min_aicB,2)
     
     # Calcular os weights de AIC
-    aic_weightsA <- exp(-0.5 * delta_aicA) / sum(exp(-0.5 * delta_aicA))
-    aic_weightsB <- exp(-0.5 * delta_aicB) / sum(exp(-0.5 * delta_aicB))
+    aic_weightsA <- round(exp(-0.5 * delta_aicA) / sum(exp(-0.5 * delta_aicA)),2)
+    aic_weightsB <- round(exp(-0.5 * delta_aicB) / sum(exp(-0.5 * delta_aicB)),2)
     
     # Exibir os resultados em um data frame
     resultsA <<- data.frame(Values = aic_valuesA,Delta_AIC = delta_aicA, AIC_Weight = aic_weightsA)    
