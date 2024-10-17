@@ -527,9 +527,27 @@ ajusteLevenberg <- function(c_infinito, k, tzero, dados_curva, real_cont_fw, med
   }
 
   #teste AIC
-  AIC_bertalanffyLM <<- AIC(vbl)
-  AIC_gompertzLM <<- AIC(gom)
-  AIC_logisticaLM <<- AIC(lgc)
+  #AIC_bertalanffyLM <<- AIC(vbl)
+  #AIC_gompertzLM <<- AIC(gom)
+  #AIC_logisticaLM <<- AIC(lgc)
+  residuos <- data.frame(idade = dados_curva$idade) 
+  residuos$ct <- dados_curva$ct 
+  residuos$Bertalanffy_Residuos <- dados_curva$ct - curva_linha_ajustadaB
+  residuos$Gompertz_Residuos <- dados_curva$ct - curva_linha_ajustadaG
+  residuos$Logistica_Residuos <- dados_curva$ct - curva_linha_ajustadaL
+      
+  # Calcular a soma dos quadrados dos resíduos (SSR)
+  SSR_bertalanffy <- sum(residuos$Bertalanffy_Residuos^2)
+  SSR_gompertz <- sum(residuos$Gompertz_Residuos^2)
+  SSR_logistica <- sum(residuos$Logistica_Residuos^2)
+
+  # Número de parâmetros para cada modelo
+  num_parametros <- 3  # Para Bertalanffy, Gompertz e Logística
+
+  # Calcular o AIC
+  AIC_bertalanffyLM <<- length(dados_curva$idade) * log(SSR_bertalanffy / length(dados_curva$idade)) + 2 * num_parametros
+  AIC_gompertzLM <<- length(dados_curva$idade) * log(SSR_gompertz / length(dados_curva$idade)) + 2 * num_parametros
+  AIC_logisticaLM <<- length(dados_curva$idade) * log(SSR_logistica / length(dados_curva$idade)) + 2 * num_parametros
     
   return()
 }
