@@ -1191,7 +1191,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   if(idioma==1){
     cat("\n\n############################## Resumo dos resultados #############################\n\n")
     cat("\nTeste",akaike,":\n")
-    if(is.null(grupo){
+    if(is.null(grupo)){
       print(results)
     }else{
       cat("\nGrupo A\n")
@@ -1203,7 +1203,7 @@ rPesca <- function(cores=1, idioma=1, un=1, tipoComprimento="Total", tempo=1, ti
   }else if(idioma==2){
     cat("\n\n############################## Summary of the results #############################\n\n")
     cat("\n",akaike,"Test:\n")
-    if(is.null(grupo){
+    if(is.null(grupo)){
       print(results)
     }else{
       cat("\nGroup A\n")
